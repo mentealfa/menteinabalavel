@@ -1,0 +1,903 @@
+Esse é o html atual:
+
+<!-- PARTE 1 - INÍCIO -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mente Inabalável</title>
+
+  <!-- =========================
+       STYLES GERAIS + EFEITOS
+       ========================= -->
+  <style>
+    /* ===== SCROLL DOURADO IRRADIANTE (aplica site todo) ===== */
+    ::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #000;
+    }
+    /* gradiente animado (nota: animação limitada em alguns navegadores) */
+    ::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background: linear-gradient(180deg, #f8db8a 0%, #d4af37 40%, #b8860b 100%);
+      box-shadow: 0 0 12px rgba(212,175,55,0.6), inset 0 0 8px rgba(255,230,150,0.15);
+      border: 2px solid rgba(0,0,0,0.15);
+      background-size: 200% 200%;
+      animation: thumbGlow 4s linear infinite;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      box-shadow: 0 0 22px rgba(255,215,0,0.9), inset 0 0 12px rgba(255,240,180,0.3);
+      background-position: 100% 0%;
+    }
+    @keyframes thumbGlow {
+      0% { background-position: 0% 0%; filter: brightness(0.95); }
+      50% { background-position: 100% 0%; filter: brightness(1.15); }
+      100% { background-position: 0% 0%; filter: brightness(0.95); }
+    }
+
+    /* ===== RESET / TIPOGRAFIA ===== */
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    h1,h2,h3 { margin: 0; }
+    section { padding: 100px 20px; }
+    a:hover { opacity: 0.95; transform: scale(1.01); }
+
+    /* ===== SUBTLE BACKGROUND MOTION (não distrai leitura) ===== */
+    .bg-subtle {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.06;
+      background:
+        radial-gradient(ellipse at 10% 20%, rgba(212,175,55,0.15) 0%, transparent 20%),
+        radial-gradient(ellipse at 90% 80%, rgba(212,175,55,0.12) 0%, transparent 18%);
+      animation: bgShift 18s linear infinite;
+      mix-blend-mode: screen;
+    }
+    @keyframes bgShift {
+      0% { transform: translateY(0) scale(1); opacity:0.06; }
+      50% { transform: translateY(-8px) scale(1.02); opacity:0.08; }
+      100% { transform: translateY(0) scale(1); opacity:0.06; }
+    }
+
+    /* small utility */
+    .z1 { z-index: 1; }
+    .z2 { z-index: 2; }
+    .inline-center { display:flex; justify-content:center; align-items:center; }
+
+    /* preserve original section visuals: hero, modules, etc
+       → styles específicos serão mantidos inline (como no seu HTML) */
+  </style>
+</head>
+<body>
+
+  <!-- subtle animated background layer (site-wide; low opacity) -->
+  <div class="bg-subtle" aria-hidden="true"></div>
+
+<!-- SEÇÃO HERO - MENTE INABALÁVEL (mantive seu conteúdo, apenas adicionei classes quando necessário) -->
+<section id="hero" style="background: linear-gradient(135deg, #000 70%, #111); color: #fff; padding: 100px 5%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; position: relative; overflow: hidden;">
+  <!-- BRILHO DOURADO DE FUNDO -->
+  <div style="position:absolute; top:-200px; left:50%; width:900px; height:900px; background:radial-gradient(circle, rgba(212,175,55,0.12), transparent 70%); transform:translateX(-50%); z-index:0; filter: blur(90px);"></div>
+
+  <!-- ANIMAÇÃO COROA GIRANDO -->
+  <div class="holograma-container" style="flex:1; min-width:350px; position:relative; z-index:1; display:flex; justify-content:center; align-items:center;">
+    <img src="https://i.postimg.cc/DZkwsbL8/Design-sem-nome-34.png" alt="Computador Mente Inabalável" class="computador" style="width:100%; max-width:600px; filter:drop-shadow(0 0 25px rgba(212,175,55,0.2));">
+    <img src="https://i.postimg.cc/sgMjNJJj/Cerebro-Dourado-com-Coroa-Real-removebg-preview.png" alt="Coroa Dourada" class="coroa-girando"
+    style="
+      position:absolute;
+      width:120px;            /* 🔽 mantenho seu tamanho menor pra caber no monitor */
+      top:42%;
+      left:55%;
+    ">
+    <div class="reflexo-dourado"></div>
+  </div>
+
+  <!-- COLUNA DIREITA: TEXTO E EBOOK -->
+  <div style="flex:1; min-width:350px; text-align:left; position: relative; z-index:1;">
+    <h1 style="font-size: 2.8em; color: #d4af37; font-weight: bold; text-transform: uppercase; margin-bottom: 20px;">
+      Transforme Sua Mente em uma Fortaleza Mental em 21 Dias
+    </h1>
+    <p style="font-size: 1.2em; color: #ccc; max-width: 520px; margin-bottom: 40px; line-height: 1.6;">
+      O método comprovado para dominar seus pensamentos, emoções e hábitos — e viver com foco, clareza e poder absoluto.<br><br>
+      <span style="color:#d4af37;">Não é motivação. É neurociência aplicada.</span><br>
+      Desenvolva a mentalidade de quem vence em silêncio e constrói impérios com disciplina e autocontrole.
+    </p>
+
+    <!-- BOTÕES -->
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
+      <a href="https://pay.kiwify.com.br/ltnQQJI" style="background: linear-gradient(90deg, #d4af37, #b8860b); color: #000; padding: 18px 50px; border-radius: 50px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; box-shadow: 0 0 25px rgba(212,175,55,0.4); transition: all 0.3s ease;">
+        Quero Ativar Minha Mente Inabalável Agora 🔥
+      </a>
+
+      <button onclick="tocarSom()" id="botaoSom"
+        style="background: transparent; border: 1px solid #d4af37; color: #d4af37; padding: 16px 40px; border-radius: 50px; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
+        🔊 Ativar Som Mental
+      </button>
+    </div>
+
+    <!-- FRASE DE REFORÇO -->
+    <div style="margin-top: 40px; font-size: 0.95em; color:#aaa; line-height:1.6;">
+      + Bônus exclusivos com especialistas internacionais<br>
+      + Garantia incondicional de 7 dias<br>
+      + Acesso imediato após a compra
+    </div>
+
+    <!-- IMAGEM DA MEDALHA -->
+    <div style="margin-top: 60px; position: relative;">
+      <img src="https://i.postimg.cc/zXzMcHBJ/Chat-GPT-Image-7-de-nov-de-2025-22-20-42-Photoroom.png" alt="Ebook Mente Inabalável"
+        style="width: 250px; animation: flutuar 4s ease-in-out infinite; filter: drop-shadow(0 0 30px rgba(212,175,55,0.4));">
+    </div>
+
+    <!-- ÁUDIO AMBIENTE -->
+    <audio id="somMental" loop></audio>
+  </div>
+
+  <div style="display:none;">
+    <iframe id="ytAudio" src="https://www.youtube.com/embed/Yi2u7f4TCrw?enablejsapi=1&autoplay=0&loop=1&playlist=Yi2u7f4TCrw&controls=0" frameborder="0" allow="autoplay"></iframe>
+  </div>
+
+  <script>
+    const botao = document.getElementById("botaoSom");
+    const ytAudio = document.getElementById("ytAudio");
+    let player, ativo = false;
+
+    // cria player YouTube via API (mantive seu código)
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('ytAudio');
+    }
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+
+    botao.addEventListener("click", () => {
+      if (!player) return;
+      if (!ativo) {
+        player.playVideo();
+        botao.innerText = "🔇 Pausar Som Mental";
+        botao.style.background = "linear-gradient(90deg, #d4af37, #b8860b)";
+        botao.style.color = "#000";
+        ativo = true;
+      } else {
+        player.pauseVideo();
+        botao.innerText = "🔊 Ativar Som Mental";
+        botao.style.background = "transparent";
+        botao.style.color = "#d4af37";
+        ativo = false;
+      }
+    });
+  </script>
+
+  <style>
+    @keyframes flutuar { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
+    @keyframes telaGlow { 0%{ box-shadow:0 0 25px rgba(212,175,55,0.4)} 100%{ box-shadow:0 0 60px rgba(212,175,55,0.9)} }
+
+    .coroa-girando {
+      position:absolute;
+      top:44%;
+      left:50%;
+      width:260px;
+      transform:translate(-50%,-50%);
+      animation:girarCoroa 15s linear infinite, brilhoHolograma 3s ease-in-out infinite alternate;
+      z-index:2;
+      opacity:0.95;
+      filter:drop-shadow(0 0 25px rgba(212,175,55,0.7)) brightness(1.2);
+    }
+    @keyframes girarCoroa { 0%{transform:translate(-50%,-50%) rotateY(0deg);} 100%{transform:translate(-50%,-50%) rotateY(360deg);} }
+    @keyframes brilhoHolograma { 0%,100%{filter:drop-shadow(0 0 15px rgba(212,175,55,0.5)) brightness(1);} 50%{filter:drop-shadow(0 0 40px rgba(255,215,0,0.9)) brightness(1.4);} }
+
+    .reflexo-dourado {
+      position:absolute;
+      top:40%;
+      left:-40%;
+      width:50%;
+      height:25%;
+      background:linear-gradient(120deg, transparent 0%, rgba(255,215,0,0.2) 50%, transparent 100%);
+      transform:skewX(-20deg);
+      animation:reflexoPassando 6s linear infinite;
+      z-index:3;
+      filter:blur(6px);
+      opacity:0.7;
+    }
+
+    @media (max-width:900px) { #hero { flex-direction: column; text-align:center } #hero img{ max-width:90% } #botaoSom{ margin-top:20px } }
+
+    #botaoSom:hover { background:#d4af37; color:#000; box-shadow:0 0 20px rgba(212,175,55,0.6); }
+  </style>
+
+  <script>
+    function tocarSom(){
+      const audio = document.getElementById("somMental");
+      const botao = document.getElementById("botaoSom");
+      if (audio.paused) {
+        audio.play();
+        botao.innerText = "🔇 Pausar Som Mental";
+        botao.style.background = "linear-gradient(90deg, #d4af37, #b8860b)";
+        botao.style.color = "#000";
+      } else {
+        audio.pause();
+        botao.innerText = "🔊 Ativar Som Mental";
+        botao.style.background = "transparent";
+        botao.style.color = "#d4af37";
+      }
+    }
+  </script>
+</section>
+
+<!-- ===========================
+     SEÇÃO 2 - MÓDULOS (CARROSSEL)
+     (PARTE DO CARROSSEL HÍBRIDO ADICIONADA)
+     =========================== -->
+<section id="modulos" style="background-color:#0a0a0a; text-align:center; color:#fff; font-family:'Poppins',sans-serif; padding:100px 20px; position:relative;">
+  <h2 style="font-size:36px; color:#d4af37; font-weight:700; margin-bottom:20px;">O que você vai aprender dentro do Mente Inabalável</h2>
+  <p style="font-size:18px; color:#ccc; max-width:800px; margin:0 auto 60px;">
+    São 10 módulos poderosos que reprogramam sua mente para foco, disciplina, performance e domínio emocional.
+  </p>
+
+  <!-- WRAPPER do carrossel: usando scrollLeft + RAF para controle híbrido -->
+  <div class="carousel" style="position:relative; overflow:hidden; max-width:1100px; margin:0 auto;">
+    <!-- container rolável (usamos JS para auto-scroll e arrastar manual) -->
+    <div class="carousel-track" id="carouselTrack" style="display:flex; gap:30px; padding-bottom:6px; cursor:grab;">
+      <!-- repita os cards originais tal como enviados -->
+      <div class="module-card">
+        <img src="https://i.postimg.cc/02rnhRRx/Design-sem-nome-17.png" alt="Módulo 1 - Autodomínio" />
+        <p>Módulo 1 – O Começo da Transformação</p>
+      </div>
+      <div class="module-card">
+        <img src="https://i.postimg.cc/sD1mbddz/Design-sem-nome-18.png" alt="Módulo 2 - Foco Mental" />
+        <p>Módulo 2 – Libertando-se das Crenças Limitantes</p>
+      </div>
+      <div class="module-card">
+        <img src="https://i.postimg.cc/jdCcB0VM/Design-sem-nome-19.png" alt="Módulo 3 - Disciplina e Clareza" />
+        <p>Módulo 3 – Reescrevendo o Diálogo Interno</p>
+      </div>
+      <div class="module-card">
+        <img src="https://i.postimg.cc/524CD8F2/Dominio-emocional.png" alt="Módulo 4 - Resiliência" />
+        <p>Módulo 4 – Domínio Emocional</p>
+      </div>
+      <div class="module-card">
+        <img src="https://i.postimg.cc/QCZBm73T/Identidade-e-Autoimagem.png" alt="Módulo 5 - Inteligência Emocional" />
+        <p>Módulo 5 – Identidade e Autoimagem</p>
+      </div>
+      <div class="module-card">
+        <img src="https://i.postimg.cc/ZKc9P0Dv/Foco-e-clareza-mental.png" alt="Módulo 6 - Performance Mental" />
+        <p>Módulo 6 – Foco e Clareza Mental</p>
+      </div>
+      <div class="module-card">
+        <img src="https://i.postimg.cc/FzvR3Qyz/O-poder-dos-habitos.png" alt="Módulo 7 - Neurociência Aplicada" />
+        <p>Módulo 7 – O Poder dos Hábitos</p>
+      </div>
+      <div class="module-card">
+        <img src="https://i.postimg.cc/y8xNFjZg/Mentalidade-Financeira-e-Prosperidade.png" alt="Módulo 8 - Mindset de Crescimento" />
+        <p>Módulo 8 – Mentalidade Financeira e Prosperidade</p>
+      </div>
+      <div class="module-card">
+        <img src="https://i.postimg.cc/5yf4jSJj/Autoconfianca-Inabalavel.png" alt="Módulo 9 - Estoicismo Moderno" />
+        <p>Módulo 9 – Autoconfiança Inabalável</p>
+      </div>
+      <div class="module-card">
+        <img src="https://i.postimg.cc/4xjXpgZY/Proposito-e-Direcao-de-Vida.png" alt="Módulo 10 - Atenção Plena" />
+        <p>Módulo 10 – Propósito e Direção de Vida</p>
+      </div>
+
+      <!-- DUPLICA os itens para efeito contínuo visual (sem alterar conteúdo original) -->
+      <div class="module-card">
+        <img src="https://i.postimg.cc/02rnhRRx/Design-sem-nome-17.png" alt="Módulo 1 - Autodomínio" />
+        <p>Módulo 1 – O Começo da Transformação</p>
+      </div>
+      <div class="module-card">
+        <img src="https://i.postimg.cc/sD1mbddz/Design-sem-nome-18.png" alt="Módulo 2 - Foco Mental" />
+        <p>Módulo 2 – Libertando-se das Crenças Limitantes</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARROSSEL - STYLES (preserva aparência existente, adiciona leve ajuste de velocidade) -->
+  <style>
+    .carousel:hover .carousel-track { /* cursor style handled in JS for dragging */ }
+    .module-card { flex: 0 0 auto; width: 220px; text-align:center; user-select:none; }
+    .module-card img { width:100%; border-radius:12px; border:2px solid #d4af37; box-shadow:0 0 25px rgba(212,175,55,0.3); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .module-card img:hover { transform: scale(1.05); box-shadow:0 0 40px rgba(212,175,55,0.6); }
+    .module-card p { color:#d4af37; font-weight:600; font-size:16px; margin-top:10px; }
+
+    /* quando arrastando, mudar cursor */
+    .is-dragging { cursor: grabbing !important; cursor: -webkit-grabbing !important; }
+
+    /* responsivo */
+    @media (max-width:900px) { .module-card{ width:160px } .module-card p{ font-size:14px } }
+  </style>
+
+  <!-- CARROSSEL - JS (auto + arrastar + resume automático) -->
+  <script>
+    (function(){
+      const track = document.getElementById('carouselTrack');
+      if (!track) return;
+
+      const container = track.parentElement;
+      let raf;
+      let lastTime = null;
+      let speed = 0.15; // px per ms → ajuste de velocidade (↑ para mais rápido)
+      let isPointerDown = false;
+      let startX = 0;
+      let scrollStart = 0;
+      let resumeTimeout;
+      const RESUME_DELAY = 1800; // ms até voltar ao auto após interação
+
+      // ensure track is horizontally scrollable
+      container.style.overflowX = 'hidden';
+      track.style.willChange = 'transform';
+
+      // auto-scroll loop using scrollLeft manipulation
+      function step(ts){
+        if (!lastTime) lastTime = ts;
+        const dt = ts - lastTime;
+        lastTime = ts;
+
+        if (!isPointerDown) {
+          container.scrollLeft += speed * dt;
+          // loop effect: when scrolled to near end, rewind smoothly to start
+          if (container.scrollLeft >= track.scrollWidth / 2) {
+            // jump back but keep smooth illusion
+            container.scrollLeft = container.scrollLeft - (track.scrollWidth / 2);
+          }
+        }
+        raf = requestAnimationFrame(step);
+      }
+      raf = requestAnimationFrame(step);
+
+      // Pointer drag handlers
+      function onPointerDown(e){
+        isPointerDown = true;
+        container.classList.add('is-dragging');
+        startX = (e.touches ? e.touches[0].pageX : e.pageX) || e.pageX;
+        scrollStart = container.scrollLeft;
+        // stop auto-resume while dragging
+        if (resumeTimeout) clearTimeout(resumeTimeout);
+      }
+      function onPointerMove(e){
+        if(!isPointerDown) return;
+        const x = (e.touches ? e.touches[0].pageX : e.pageX) || e.pageX;
+        const dx = x - startX;
+        container.scrollLeft = scrollStart - dx;
+      }
+      function onPointerUp(e){
+        isPointerDown = false;
+        container.classList.remove('is-dragging');
+        // resume after short delay
+        if (resumeTimeout) clearTimeout(resumeTimeout);
+        resumeTimeout = setTimeout(()=> { lastTime = null; }, RESUME_DELAY);
+      }
+
+      // events
+      track.addEventListener('mousedown', onPointerDown);
+      track.addEventListener('touchstart', onPointerDown, {passive:true});
+      window.addEventListener('mousemove', onPointerMove);
+      window.addEventListener('touchmove', onPointerMove, {passive:true});
+      window.addEventListener('mouseup', onPointerUp);
+      window.addEventListener('touchend', onPointerUp);
+
+      // pause auto on wheel, resume after delay
+      let wheelTO;
+      container.addEventListener('wheel', (ev) => {
+        // user controlling: pause auto (by setting lastTime null temporarily)
+        if (wheelTO) clearTimeout(wheelTO);
+        lastTime = null;
+        wheelTO = setTimeout(()=> { lastTime = null; }, RESUME_DELAY);
+      }, {passive:true});
+
+      // accessibility: pause when tab not visible
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) cancelAnimationFrame(raf);
+        else raf = requestAnimationFrame(step);
+      });
+    })();
+  </script>
+</section>
+
+<!-- ===========================
+     SEÇÃO 3 - BÔNUS E ESPECIALISTAS (mantido)
+     =========================== -->
+<section id="especialistas" style="background: linear-gradient(180deg, #0a0a0a, #1a1a1a); padding: 100px 0; text-align:center; position:relative;">
+  <h2 style="color:#fff; font-size:2.4rem; margin-bottom:50px;">
+    Conheça os <span style="color:#d4af37;">Mentores do Mente Inabalável</span>
+  </h2>
+
+  <div class="cards-container z2">
+    <div class="card" data-info="Daniel Goleman — Criador do conceito de Inteligência Emocional, referência mundial no equilíbrio emocional e liderança.">
+      <div class="front">
+        <img src="https://i.postimg.cc/brw7KCpc/Design-sem-nome-25.png" alt="Daniel Goleman">
+        <h3>Daniel Goleman</h3>
+      </div>
+      <div class="back"></div>
+    </div>
+
+    <div class="card" data-info="Andrew Huberman — Neurocientista de Stanford, especialista em performance cerebral e foco.">
+      <div class="front">
+        <img src="https://i.postimg.cc/5NHGLFts/Design-sem-nome-26.png" alt="Andrew Huberman">
+        <h3>Andrew Huberman</h3>
+      </div>
+      <div class="back"></div>
+    </div>
+
+    <div class="card" data-info="Ryan Holiday — Autor de 'O Ego é Seu Inimigo', maior expoente do estoicismo moderno.">
+      <div class="front">
+        <img src="https://i.postimg.cc/c1zkx4cJ/Design-sem-nome-28.png" alt="Ryan Holiday">
+        <h3>Ryan Holiday</h3>
+      </div>
+      <div class="back"></div>
+    </div>
+
+    <div class="card" data-info="Carol Dweck — Psicóloga de Stanford, criadora do conceito Growth Mindset (Mentalidade de Crescimento).">
+      <div class="front">
+        <img src="https://i.postimg.cc/pT6CLqzB/Design-sem-nome-29.png" alt="Carol Dweck">
+        <h3>Carol Dweck</h3>
+      </div>
+      <div class="back"></div>
+    </div>
+
+    <div class="card" data-info="Jon Kabat-Zinn — Mestre em Atenção Plena (Mindfulness) e medicina mente-corpo.">
+      <div class="front">
+        <img src="https://i.postimg.cc/G3Z0MjVY/Design-sem-nome-30.png" alt="Jon Kabat-Zinn">
+        <h3>Jon Kabat-Zinn</h3>
+      </div>
+      <div class="back"></div>
+    </div>
+
+    <div class="card" data-info="Michael Merzenich — Neurocientista e pioneiro da Neuroplasticidade, um dos fundadores das ciências da mente.">
+      <div class="front">
+        <img src="https://i.postimg.cc/ZqYX9svJ/Design-sem-nome-31.png" alt="Michael Merzenich">
+        <h3>Michael Merzenich</h3>
+      </div>
+      <div class="back"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* cards (mantive seu CSS, sem remoções) */
+  .cards-container {
+    display:flex; flex-wrap:wrap; justify-content:center; gap:30px; perspective:1200px; position:relative; z-index:2;
+  }
+  .card { width:220px; height:300px; position:relative; transform-style:preserve-3d; transition:transform 0.8s ease; cursor:pointer; }
+  .card .front, .card .back { position:absolute; inset:0; border-radius:14px; overflow:hidden; backface-visibility:hidden; border:2px solid rgba(212,175,55,0.4); box-shadow:0 0 20px rgba(212,175,55,0.15); }
+  .card .front { background:#111; }
+  .card .front img { width:100%; height:70%; object-fit:cover; }
+  .card .front h3 { color:#fff; font-size:1rem; margin:10px 0; text-transform:uppercase; }
+  .card .back { background:rgba(10,10,10,0.95); color:#fff; padding:25px; transform:rotateY(180deg); display:flex; flex-direction:column; justify-content:center; align-items:center; }
+  .card.flipped { transform:rotateY(180deg); z-index:10; }
+
+  .card.flipped::before { content:''; position:absolute; inset:0; border-radius:14px; border:2px solid #d4af37; box-shadow:0 0 30px rgba(212,175,55,0.8); animation:pulseGlow 1.8s infinite ease-in-out; }
+  @keyframes pulseGlow { 0%,100%{ box-shadow:0 0 30px rgba(212,175,55,0.3);} 50%{ box-shadow:0 0 60px rgba(212,175,55,0.8);} }
+</style>
+
+<script>
+  // cards flip (mantive)
+  document.querySelectorAll('.card').forEach(card => {
+    const back = card.querySelector('.back');
+    const infoText = card.dataset.info;
+    if(back) back.innerHTML = `<p>${infoText}</p><button>Fechar</button>`;
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.card.flipped').forEach(c => { if (c !== card) c.classList.remove('flipped'); });
+      card.classList.toggle('flipped');
+    });
+    const btn = back && back.querySelector('button');
+    if (btn) btn.addEventListener('click', (e) => { e.stopPropagation(); card.classList.remove('flipped'); });
+  });
+</script>
+
+<!-- SEÇÃO 4 — DEPOIMENTOS -->
+<section id="depoimentos" style="background: linear-gradient(180deg, #0a0a0a, #111); color:#fff; padding:100px 5%; text-align:center; position:relative; overflow:hidden;">
+  <!-- BRILHO DOURADO DE FUNDO -->
+  <div style="position:absolute; top:-200px; left:50%; width:900px; height:900px; background:radial-gradient(circle, rgba(212,175,55,0.08), transparent 70%); transform:translateX(-50%); z-index:0; filter: blur(90px);"></div>
+
+  <h2 style="font-size:2.4rem; color:#d4af37; margin-bottom:60px; position:relative; z-index:2;">
+    <span style="color:#fff;">Transformações reais de quem aplicou o</span> Mente Inabalável
+  </h2>
+
+  <!-- GRID DE DEPOIMENTOS -->
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:40px; position:relative; z-index:2;">
+    <div class="depo-card">
+      <img src="https://i.postimg.cc/bwcjFNKm/MI-2.png" alt="Depoimento 1">
+    </div>
+    <div class="depo-card">
+      <img src="https://i.postimg.cc/0QgW9b0T/MI-3.png" alt="Depoimento 2">
+    </div>
+    <div class="depo-card">
+      <img src="https://i.postimg.cc/WzpcwP7s/Screenshot-20251108-170904-Instagram.jpg" alt="Depoimento 3">
+    </div>
+    <div class="depo-card">
+      <img src="https://i.postimg.cc/9MM7Q2JR/Design-sem-nome-20251109-002519-0000.png" alt="Depoimento 4">
+    </div>
+  </div>
+
+  <!-- PLAYER DE ÁUDIO PERSONALIZADO MENTE ALFA -->
+  <div style="margin-top:80px; text-align:center; color:#d4af37; font-family:'Poppins', sans-serif;">
+    <h3 style="font-size:1.6rem; margin-bottom:25px; letter-spacing:1px;">Ouça o que eles sentiram na transformação</h3>
+
+    <div id="menteAlfaPlayer" style="background: linear-gradient(145deg, #0a0a0a, #121212); border: 1px solid rgba(212,175,55,0.3); border-radius: 22px; box-shadow: 0 0 25px rgba(212,175,55,0.2); display: flex; align-items: center; justify-content: space-between; padding: 20px 25px; width: 420px; margin: auto; position: relative; overflow: hidden;">
+      <div class="glow" style="content:''; position:absolute; inset:0; border-radius:22px; box-shadow:0 0 25px rgba(212,175,55,0.15); animation: glowPulse 2.5s infinite alternate; pointer-events:none;"></div>
+      <button id="playPauseBtn" style="background-color:#d4af37; border:none; width:60px; height:60px; border-radius:50%; color:#000; font-size:26px; font-weight:bold; cursor:pointer; transition:all .3s ease; z-index:1; box-shadow:0 0 10px rgba(212,175,55,0.4);">▶</button>
+      <div style="flex:1; margin:0 20px; z-index:1;">
+        <p style="margin-bottom:8px; font-size:0.95rem; color:#d4af37; font-weight:500;">Depoimentos de alunos do grupo de networking do MI</p>
+        <div style="height:6px; background:#333; border-radius:5px; overflow:hidden;">
+          <div id="progressBar" style="height:6px; width:0%; background:#d4af37; transition:width 0.1s;"></div>
+        </div>
+        <p id="timeDisplay" style="margin-top:8px; font-size:0.8rem; color:#a88f2a;">00:00 / 00:00</p>
+      </div>
+      <audio id="audio" src="https://res.cloudinary.com/deax6es7v/video/upload/v1762576601/depoimento-mente-inabalavel.mp3_twwfpm.mp3" type="audio/mp3"></audio>
+    </div>
+  </div>
+
+  <style>
+    @keyframes glowPulse { 0% { box-shadow:0 0 10px rgba(212,175,55,0.2); } 100% { box-shadow:0 0 25px rgba(212,175,55,0.5); } }
+    #playPauseBtn:hover { transform: scale(1.1); box-shadow:0 0 20px rgba(212,175,55,0.6); }
+    #playPauseBtn.playing { animation: pulseButton 1.8s infinite ease-in-out; }
+    @keyframes pulseButton { 0%,100%{ box-shadow:0 0 15px rgba(212,175,55,0.5); transform:scale(1);} 50%{ box-shadow:0 0 25px rgba(212,175,55,0.8); transform:scale(1.07);} }
+  </style>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const progressBar = document.getElementById('progressBar');
+    const timeDisplay = document.getElementById('timeDisplay');
+
+    function formatTime(seconds){
+      const minutes = Math.floor(seconds/60);
+      const secs = Math.floor(seconds%60);
+      return `${minutes.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
+    }
+
+    playPauseBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        playPauseBtn.textContent = '⏸';
+        playPauseBtn.classList.add('playing');
+      } else {
+        audio.pause();
+        playPauseBtn.textContent = '▶';
+        playPauseBtn.classList.remove('playing');
+      }
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      if (!audio.duration) return;
+      const progress = (audio.currentTime / audio.duration) * 100;
+      progressBar.style.width = progress + '%';
+      timeDisplay.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+    });
+
+    audio.addEventListener('ended', () => {
+      playPauseBtn.textContent = '▶';
+      playPauseBtn.classList.remove('playing');
+    });
+  </script>
+
+  <!-- =========================
+       MOUSE GOLD SHADOW (somente nesta seção)
+       cria um elemento que segue o cursor e aparece enquanto o mouse está sobre #depoimentos
+       ========================= -->
+  <style>
+    /* cursor shadow element */
+    #mi-mouse-shadow {
+      position: fixed;
+      pointer-events: none;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+      mix-blend-mode: screen;
+      filter: blur(18px);
+      transition: transform 0.12s ease-out, opacity 0.12s linear;
+      opacity: 0;
+      z-index: 9999;
+      background: radial-gradient(circle, rgba(255,215,0,0.85) 0%, rgba(212,175,55,0.45) 30%, rgba(0,0,0,0) 60%);
+      box-shadow: 0 0 40px rgba(255,215,0,0.35), 0 0 10px rgba(255,245,180,0.25);
+      backdrop-filter: blur(0px);
+    }
+  </style>
+  <div id="mi-mouse-shadow" aria-hidden="true"></div>
+
+  <script>
+    (function(){
+      const section = document.getElementById('depoimentos');
+      const shadow = document.getElementById('mi-mouse-shadow');
+      if(!section || !shadow) return;
+
+      let isOver = false;
+      let raf;
+      let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
+
+      function onMove(e){
+        const ev = e.touches ? e.touches[0] : e;
+        mouseX = ev.clientX;
+        mouseY = ev.clientY;
+        if(!isOver) return;
+        shadow.style.opacity = 1;
+      }
+
+      function update(){
+        // lerp for smooth follow
+        curX += (mouseX - curX) * 0.22;
+        curY += (mouseY - curY) * 0.22;
+        shadow.style.left = curX + 'px';
+        shadow.style.top = curY + 'px';
+        raf = requestAnimationFrame(update);
+      }
+
+      section.addEventListener('mouseenter', (e) => {
+        isOver = true;
+        shadow.style.opacity = 1;
+        onMove(e);
+        if(!raf) raf = requestAnimationFrame(update);
+      });
+      section.addEventListener('mousemove', onMove);
+      section.addEventListener('touchstart', (e) => { onMove(e); isOver = true; shadow.style.opacity = 1; if(!raf) raf = requestAnimationFrame(update); }, {passive:true});
+      section.addEventListener('mouseleave', () => {
+        isOver = false;
+        shadow.style.opacity = 0;
+      });
+      section.addEventListener('touchend', () => { isOver = false; shadow.style.opacity = 0; });
+
+      // hide on scroll outside area quickly
+      window.addEventListener('scroll', () => {
+        if(!isOver) shadow.style.opacity = 0;
+      }, {passive:true});
+    })();
+  </script>
+
+</section>
+
+<!-- ===== PARTE 2 (SEÇÕES 5, 6, 7 + RODAPÉ + MOUSE SHADOW + SCROLL) ===== -->
+
+<!-- SEÇÃO 5 - OFERTA COM RASTRO DOURADO EM LOOP CORRETO -->
+<section id="oferta" style="background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%); text-align: center; padding: 100px 20px; position: relative;">
+  <h2 style="font-size: 36px; color: #d4af37; margin-bottom: 10px;">Tenha acesso ao <span style="color:#fff;">Mente Inabalável</span></h2>
+  <p style="font-size: 18px; color: #ccc; margin-bottom: 35px;">Domine sua mente. Quebre seus limites. Reconstrua quem você é.</p>
+
+  <div class="oferta-wrap" style="max-width: 880px; margin: 0 auto; position: relative;">
+    <div class="oferta-box">
+      
+      <!-- Moldura animada (rastro contornando o retângulo) -->
+      <svg class="moldura-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="bordaBase" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#d4af37"/>
+            <stop offset="100%" stop-color="#b8860b"/>
+          </linearGradient>
+
+          <!-- Rastro de energia dourado -->
+          <linearGradient id="rastroAnim" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="rgba(255,215,0,0)" />
+            <stop offset="50%" stop-color="rgba(255,255,200,1)" />
+            <stop offset="100%" stop-color="rgba(255,215,0,0)" />
+          </linearGradient>
+        </defs>
+
+        <!-- Borda base fixa -->
+        <rect x="1.5" y="1.5" width="97" height="97" rx="5" ry="5"
+              fill="none" stroke="url(#bordaBase)" stroke-width="0.8"/>
+
+        <!-- Rastro animado percorrendo toda a moldura -->
+        <rect x="1.5" y="1.5" width="97" height="97" rx="5" ry="5"
+              fill="none" stroke="url(#rastroAnim)" stroke-width="1.8"
+              stroke-linecap="round" stroke-dasharray="390"
+              stroke-dashoffset="390">
+          <animate attributeName="stroke-dashoffset"
+                   values="390;0;-390"
+                   dur="8s"
+                   repeatCount="indefinite" />
+        </rect>
+      </svg>
+
+      <!-- Conteúdo interno -->
+      <div style="position:relative; z-index:5;">
+        <div style="display:flex; justify-content:center; margin-bottom:30px;">
+          <img src="https://i.postimg.cc/zXzMcHBJ/Chat-GPT-Image-7-de-nov-de-2025-22-20-42-Photoroom.png" 
+               alt="Medalha Mente Inabalável" 
+               style="width:400px; filter:drop-shadow(0 0 30px rgba(212,175,55,0.6));">
+        </div>
+
+        <h3 style="font-size: 28px; color:#fff;">Invista em sua mente por apenas:</h3>
+        <h1 style="font-size: 54px; color: #d4af37; margin: 15px 0;">R$47,00</h1>
+        <p style="font-size: 20px; color: #bbb;">ou 11x de R$5,22</p>
+        <p style="font-size: 16px; color: #888; margin-top: 25px;">Acesso vitalício + 7 dias de garantia incondicional</p>
+      </div>
+    </div>
+
+    <!-- BOTÃO -->
+    <div style="margin-top:40px;">
+      <a href="https://pay.kiwify.com.br/ltnQQJI" target="_blank" 
+        style="display:inline-block; background:linear-gradient(90deg,#d4af37,#b9972f); color:#000; font-weight:700; font-size:22px; padding:20px 45px; border-radius:14px; text-decoration:none; box-shadow:0 0 30px rgba(212,175,55,0.5); transition:0.3s;">
+        QUERO TRANSFORMAR MINHA MENTE
+      </a>
+      <p style="font-size:14px; color:#777; margin-top:25px;">Pagamento 100% seguro via Kiwify 🔒</p>
+    </div>
+
+    <!-- Selo -->
+    <div style="margin-top:50px;">
+      <img src="https://i.postimg.cc/1XdyzG7y/Design-sem-nome-35-Photoroom.png" alt="Selo de Segurança" 
+           style="width:200px; border-radius:50%; box-shadow:0 0 20px rgba(212,175,55,0.25);">
+      <p style="font-size:14px; color:#aaa; margin-top:10px;">
+        Você tem 7 dias para testar o conteúdo. Se não gostar, devolvemos 100% do valor.
+      </p>
+    </div>
+  </div>
+
+  <style>
+    .oferta-box {
+      position: relative;
+      border-radius: 25px;
+      overflow: hidden;
+      max-width: 800px;
+      margin: 60px auto;
+      background: #111;
+      box-shadow: 0 0 25px rgba(212,175,55,0.15);
+      padding: 70px 30px;
+    }
+
+    .moldura-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+  </style>
+</section>
+
+<!-- SEÇÃO 6 - GARANTIA -->
+<section id="garantia" style="background: linear-gradient(180deg, #0a0a0a, #000); color: #fff; padding: 100px 5%; text-align: center; position: relative;">
+  <div style="position:absolute; top:-140px; left:50%; width:600px; height:600px; background: radial-gradient(circle, rgba(212,175,55,0.14), transparent 70%); transform:translateX(-50%); z-index:0; filter: blur(70px);"></div>
+
+  <div style="position: relative; z-index:1; max-width: 900px; margin: auto;">
+    <h2 style="font-size: 2.4rem; color: #d4af37; text-transform: uppercase; margin-bottom: 20px;">Garantia Inabalável</h2>
+
+    <p style="color:#ccc; font-size:1.1rem; margin-bottom:30px; line-height:1.6;">
+      Você tem 7 dias para testar o <strong>Mente Inabalável</strong>. Se não sentir evolução real, devolvemos 100% do seu investimento — sem perguntas.
+    </p>
+
+    <div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
+      <img src="https://i.postimg.cc/VvKtD6L5/selo-de-garantia.png" alt="Selo" style="width:220px; filter: drop-shadow(0 0 20px rgba(212,175,55,0.4)); border-radius:10px;">
+      <div style="max-width:420px; text-align:left;">
+        <p style="color:#ddd; font-size:1rem; margin-bottom:12px;"><strong>Transparência total.</strong></p>
+        <p style="color:#bbb; font-size:0.98rem;">Caso não sinta os resultados ou não esteja satisfeito, basta solicitar a devolução dentro do prazo e processaremos rapidamente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 7 - PERGUNTAS FREQUENTES (EXPANDIDA) -->
+<section id="faq" style="background-color:#000; color:#fff; text-align:center; padding:100px 20px;">
+  <h2 style="font-size:36px; color:#d4af37; margin-bottom:50px;">Perguntas Frequentes</h2>
+
+  <div style="max-width:1000px; margin:0 auto; display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:start; text-align:left;">
+    <!-- coluna 1 -->
+    <div>
+      <details style="margin-bottom:16px; border:1px solid #222; border-radius:10px; background:#0f0f0f; padding:18px;">
+        <summary style="cursor:pointer; font-size:18px; color:#d4af37; font-weight:700;">Como recebo o eBook?</summary>
+        <p style="margin-top:10px; color:#ccc;">Você recebe por e-mail junto ao acesso ao curso, imediatamente após confirmação.</p>
+      </details>
+
+      <details style="margin-bottom:16px; border:1px solid #222; border-radius:10px; background:#0f0f0f; padding:18px;">
+        <summary style="cursor:pointer; font-size:18px; color:#d4af37; font-weight:700;">Por quanto tempo terei acesso?</summary>
+        <p style="margin-top:10px; color:#ccc;">Acesso vitalício ao conteúdo e atualizações.</p>
+      </details>
+
+      <details style="margin-bottom:16px; border:1px solid #222; border-radius:10px; background:#0f0f0f; padding:18px;">
+        <summary style="cursor:pointer; font-size:18px; color:#d4af37; font-weight:700;">Posso ler pelo celular?</summary>
+        <p style="margin-top:10px; color:#ccc;">Sim. Tudo é responsivo e compatível com dispositivos móveis.</p>
+      </details>
+
+      <details style="margin-bottom:16px; border:1px solid #222; border-radius:10px; background:#0f0f0f; padding:18px;">
+        <summary style="cursor:pointer; font-size:18px; color:#d4af37; font-weight:700;">É seguro comprar pela Kiwify?</summary>
+        <p style="margin-top:10px; color:#ccc;">Sim — pagamentos protegidos e entrega automática do acesso.</p>
+      </details>
+    </div>
+
+    <!-- coluna 2 -->
+    <div>
+      <details style="margin-bottom:16px; border:1px solid #222; border-radius:10px; background:#0f0f0f; padding:18px;">
+        <summary style="cursor:pointer; font-size:18px; color:#d4af37; font-weight:700;">Como funciona a garantia?</summary>
+        <p style="margin-top:10px; color:#ccc;">Você tem 7 dias para testar — devolução integral se não estiver satisfeito.</p>
+      </details>
+
+      <details style="margin-bottom:16px; border:1px solid #222; border-radius:10px; background:#0f0f0f; padding:18px;">
+        <summary style="cursor:pointer; font-size:18px; color:#d4af37; font-weight:700;">O Mente Inabalável é para iniciantes?</summary>
+        <p style="margin-top:10px; color:#ccc;">Totalmente. Conteúdo progressivo para todos os níveis.</p>
+      </details>
+
+      <details style="margin-bottom:16px; border:1px solid #222; border-radius:10px; background:#0f0f0f; padding:18px;">
+        <summary style="cursor:pointer; font-size:18px; color:#d4af37; font-weight:700;">Preciso muito tempo diário?</summary>
+        <p style="margin-top:10px; color:#ccc;">Não — as práticas são pensadas para encaixar no seu dia a dia.</p>
+      </details>
+
+      <details style="margin-bottom:16px; border:1px solid #222; border-radius:10px; background:#0f0f0f; padding:18px;">
+        <summary style="cursor:pointer; font-size:18px; color:#d4af37; font-weight:700;">Suporte e comunidade</summary>
+        <p style="margin-top:10px; color:#ccc;">Os compradores têm acesso a um grupo exclusivo e suporte por e-mail.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- RODAPÉ -->
+<footer style="background-color:#050505; color:#777; text-align:center; padding:36px 20px; font-size:14px;">
+  <p style="margin:0;">Mente Inabalável © 2025 — Todos os direitos reservados.</p>
+</footer>
+
+<!-- ===== EFEITO DO MOUSE: SOMBRA DOURADA (SOMENTE VISUAL; NÃO TROCA CURSOR PADRÃO FORA DO BODY) ===== -->
+<style>
+/* Se você já escondeu o cursor em outro lugar, remova body{cursor:none} para manter acessibilidade.
+   Aqui apenas adicionamos a sombra acompanhando o ponteiro. */
+.mouse-shadow {
+  position: fixed;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255,245,200,0.95) 0%, rgba(212,175,55,0.45) 35%, rgba(212,175,55,0.10) 60%, rgba(0,0,0,0) 100%);
+  mix-blend-mode: screen;
+  filter: blur(20px) saturate(1.2);
+  transition: transform 0.08s linear;
+  z-index: 9999;
+  opacity: 0.98;
+}
+</style>
+
+<div id="mouseShadow" class="mouse-shadow" aria-hidden="true"></div>
+
+<script>
+(function(){
+  const ms = document.getElementById('mouseShadow');
+  if(!ms) return;
+  document.addEventListener('mousemove', (e) => {
+    // small offset so it centers properly
+    ms.style.transform = `translate3d(${e.clientX - 34}px, ${e.clientY - 34}px, 0)`;
+  }, {passive:true});
+  // hide on touch devices
+  function isTouch() {
+    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  }
+  if(isTouch()) ms.style.display = 'none';
+})();
+</script>
+
+<!-- ===== SCROLL DOURADO MELHORADO (brilho + animação leve) ===== -->
+<style>
+/* WebKit-based browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: #000; box-shadow: inset 0 0 8px rgba(212,175,55,0.06); border-radius: 10px; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #fff8d0, #ffd700 30%, #d4af37 60%, #b8860b 100%);
+  border-radius: 10px;
+  box-shadow: 0 0 18px rgba(255,215,0,0.9), inset 0 0 6px rgba(255,255,255,0.6);
+  transition: box-shadow .25s ease;
+  border: 1px solid rgba(255,230,120,0.12);
+}
+::-webkit-scrollbar-thumb:hover {
+  box-shadow: 0 0 30px rgba(255,245,180,1), inset 0 0 8px rgba(255,255,255,0.8);
+}
+
+/* Firefox (limited) */
+* { scrollbar-width: thin; scrollbar-color: #ffd700 #000; }
+
+/* subtle animated glow for desktop */
+@keyframes scrollPulse {
+  0% { box-shadow: 0 0 12px rgba(255,215,0,0.5); }
+  50% { box-shadow: 0 0 26px rgba(255,255,180,0.95); }
+  100% { box-shadow: 0 0 12px rgba(255,215,0,0.5); }
+}
+::-webkit-scrollbar-thumb { animation: scrollPulse 2.6s ease-in-out infinite; }
+</style>
