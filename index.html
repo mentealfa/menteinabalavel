@@ -546,7 +546,7 @@
 </script>
 </section>
   
-  <!-- SEÇÃO 4 — DEPOIMENTOS -->
+<!-- SEÇÃO 4 — DEPOIMENTOS -->
 <section id="depoimentos" style="background: linear-gradient(180deg, #0a0a0a, #111); color:#fff; padding:100px 5%; text-align:center; position:relative; overflow:hidden;">
 
   <!-- BRILHO DOURADO DE FUNDO -->
@@ -557,7 +557,7 @@
   </h2>
 
   <!-- GRID DE DEPOIMENTOS -->
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:40px; position:relative; z-index:2;">
+  <div id="depoGrid" style="display:flex; flex-wrap:wrap; justify-content:center; gap:40px; position:relative; z-index:2;">
 
     <!-- DEPOIMENTO 1 -->
     <div class="depo-card">
@@ -726,7 +726,7 @@
     max-height: 85%;
     border-radius: 12px;
     box-shadow: 0 0 40px rgba(212,175,55,0.5);
-    animation: zoomFadeIn 0.5s ease;
+    animation: zoomFadeIn 0.4s ease;
   }
 
   @keyframes zoomFadeIn {
@@ -752,18 +752,16 @@
 
   /* ---- CURSOR DOURADO ---- */
   @media (hover: hover) and (pointer: fine) {
-    .gold-cursor {
-      position: fixed;
-      width: 20px;
-      height: 20px;
-      border: 2px solid #d4af37;
-      border-radius: 50%;
+    #depoimentos .cursor-shadow {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, rgba(212,175,55,0.4), transparent 70%);
       pointer-events: none;
-      box-shadow: 0 0 20px rgba(212,175,55,0.6);
-      transform: translate(-50%, -50%);
-      transition: all 0.12s ease;
-      z-index: 9999;
-      mix-blend-mode: screen;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      filter: blur(12px);
+      z-index: 10;
     }
   }
 
@@ -819,39 +817,41 @@
 
   depoCards.forEach(img => {
     img.addEventListener("click", () => {
+      modal.style.display = "block";
+      // Força reinício da animação a cada clique
+      modal.classList.remove("show");
+      void modal.offsetWidth; // hack para reiniciar animação
       modal.classList.add("show");
       modalImg.src = img.src;
     });
   });
 
-  closeModal.onclick = () => {
+  function closeModalFunc() {
     modal.classList.remove("show");
     setTimeout(() => modal.style.display = "none", 300);
-  };
+  }
 
-  window.onclick = (e) => {
-    if (e.target === modal) {
-      modal.classList.remove("show");
-      setTimeout(() => modal.style.display = "none", 300);
-    }
-  };
+  closeModal.onclick = closeModalFunc;
+  modal.onclick = (e) => { if (e.target === modal) closeModalFunc(); };
 
-  // ===== CURSOR DOURADO (somente em desktop) =====
+  // ===== CURSOR DOURADO APENAS NA SEÇÃO =====
   if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    const cursor = document.createElement('div');
-    cursor.classList.add('gold-cursor');
-    document.body.appendChild(cursor);
+    const depoSection = document.querySelector('#depoimentos');
+    const cursorShadow = document.createElement('div');
+    cursorShadow.classList.add('cursor-shadow');
+    depoSection.appendChild(cursorShadow);
 
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.pageX + 'px';
-      cursor.style.top = e.pageY + 'px';
+    depoSection.addEventListener('mousemove', e => {
+      const rect = depoSection.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      cursorShadow.style.left = `${x - 30}px`;
+      cursorShadow.style.top = `${y - 30}px`;
     });
 
-    const depoArea = document.querySelectorAll('.depo-card');
-    depoArea.forEach(area => {
-      area.addEventListener('mouseenter', () => cursor.style.boxShadow = '0 0 35px rgba(212,175,55,0.9)');
-      area.addEventListener('mouseleave', () => cursor.style.boxShadow = '0 0 20px rgba(212,175,55,0.6)');
-    });
+    const grid = document.getElementById('depoGrid');
+    grid.addEventListener('mouseenter', () => cursorShadow.style.opacity = '1');
+    grid.addEventListener('mouseleave', () => cursorShadow.style.opacity = '0');
   }
 </script>
 </section>
@@ -1072,6 +1072,7 @@
 }
 ::-webkit-scrollbar-thumb { animation: scrollPulse 2.6s ease-in-out infinite; }
 </style>
+
 
 
 
