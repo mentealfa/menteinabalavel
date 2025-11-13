@@ -856,56 +856,15 @@
 </script>
 </section>
 
-
-<!-- ===== PARTE 2 (SEÇÕES 5, 6, 7 + RODAPÉ + MOUSE SHADOW + SCROLL) ===== -->
-
-<!-- SEÇÃO 5 - OFERTA COM COMETA DOURADO EM LOOP -->
+<!-- SEÇÃO 5 - OFERTA COM LUZ DOURADA GIRANDO AO REDOR -->
 <section id="oferta" style="background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%); text-align: center; padding: 100px 20px; position: relative;">
   <h2 style="font-size: 36px; color: #d4af37; margin-bottom: 10px;">Tenha acesso ao <span style="color:#fff;">Mente Inabalável</span></h2>
   <p style="font-size: 18px; color: #ccc; margin-bottom: 35px;">Domine sua mente. Quebre seus limites. Reconstrua quem você é.</p>
 
   <div class="oferta-wrap" style="max-width: 880px; margin: 0 auto; position: relative;">
     <div class="oferta-box">
-      <!-- Moldura animada com rastro dourado -->
-      <svg class="moldura-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <defs>
-          <!-- Borda base dourada -->
-          <linearGradient id="bordaBase" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#d4af37"/>
-            <stop offset="100%" stop-color="#b8860b"/>
-          </linearGradient>
-
-          <!-- Rastro de energia -->
-          <linearGradient id="cometa" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="rgba(255,215,0,0)" />
-            <stop offset="50%" stop-color="rgba(255,255,200,1)" />
-            <stop offset="100%" stop-color="rgba(255,215,0,0)" />
-          </linearGradient>
-        </defs>
-
-        <!-- Linha base -->
-        <rect x="1.5" y="1.5" width="97" height="97" rx="5" ry="5"
-              fill="none" stroke="url(#bordaBase)" stroke-width="0.8"/>
-
-        <!-- Rastro animado percorrendo toda a moldura -->
-        <rect x="1.5" y="1.5" width="97" height="97" rx="5" ry="5"
-              fill="none" stroke="url(#cometa)" stroke-width="2.4"
-              stroke-linecap="round" stroke-dasharray="400"
-              stroke-dashoffset="400"
-              filter="url(#glow)">
-          <animate attributeName="stroke-dashoffset"
-                   values="400;0;-400"
-                   dur="7s"
-                   repeatCount="indefinite" />
-        </rect>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
-          <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </svg>
+      <!-- Moldura dourada com efeito de rotação -->
+      <div class="moldura-animada"></div>
 
       <!-- Conteúdo -->
       <div style="position:relative; z-index:5;">
@@ -951,18 +910,55 @@
       background: #111;
       box-shadow: 0 0 25px rgba(212,175,55,0.15);
       padding: 70px 30px;
+      border: 2px solid rgba(212,175,55,0.4);
     }
 
-    .moldura-svg {
+    /* === NOVA MOLDURA ANIMADA COM LUZ CIRCULANDO === */
+    .moldura-animada {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
+      border-radius: 25px;
       z-index: 1;
       pointer-events: none;
+      border: 2px solid transparent;
+      background: linear-gradient(90deg, rgba(212,175,55,0.8), rgba(255,255,200,1), rgba(212,175,55,0.8)) border-box;
+      -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      animation: girarLuz 5s linear infinite;
+      box-shadow: 0 0 30px rgba(212,175,55,0.3);
     }
 
+    @keyframes girarLuz {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .moldura-animada::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 25px;
+      padding: 2px;
+      background: conic-gradient(from 0deg, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,230,120,0.7) 25%, 
+        rgba(212,175,55,1) 50%, 
+        rgba(255,255,255,0) 100%);
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box, 
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      animation: girarLuz 5s linear infinite;
+      filter: blur(1px);
+    }
   </style>
 </section>
 
@@ -1072,6 +1068,7 @@
 }
 ::-webkit-scrollbar-thumb { animation: scrollPulse 2.6s ease-in-out infinite; }
 </style>
+
 
 
 
