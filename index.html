@@ -858,12 +858,23 @@
 
 <!-- SEÇÃO 5 - OFERTA COM BRILHO DOURADO NAS LINHAS DA MOLDURA -->
 <section id="oferta" style="background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%); text-align: center; padding: 100px 20px; position: relative;">
-  <h2 style="font-size: 36px; color: #d4af37; margin-bottom: 10px;">Tenha acesso ao <span style="color:#fff;">Mente Inabalável</span></h2>
-  <p style="font-size: 18px; color: #ccc; margin-bottom: 35px;">Domine sua mente. Quebre seus limites. Reconstrua quem você é.</p>
+  <h2 style="font-size: 36px; color: #d4af37; margin-bottom: 10px;">
+    Tenha acesso ao <span style="color:#fff;">Mente Inabalável</span>
+  </h2>
+  <p style="font-size: 18px; color: #ccc; margin-bottom: 35px;">
+    Domine sua mente. Quebre seus limites. Reconstrua quem você é.
+  </p>
 
   <div class="oferta-wrap" style="max-width: 880px; margin: 0 auto; position: relative;">
     <div class="oferta-box cardluz">
-      <!-- Conteúdo -->
+      
+      <!-- camada da luz -->
+      <div class="moldura-animada"></div>
+
+      <!-- máscara que tampa o meio -->
+      <div class="mascara-centro"></div>
+
+      <!-- conteúdo -->
       <div style="position:relative; z-index:5;">
         <div style="display:flex; justify-content:center; margin-bottom:30px;">
           <img src="https://i.postimg.cc/zXzMcHBJ/Chat-GPT-Image-7-de-nov-de-2025-22-20-42-Photoroom.png" 
@@ -874,7 +885,9 @@
         <h3 style="font-size: 28px; color:#fff;">Invista em sua mente por apenas:</h3>
         <h1 style="font-size: 54px; color: #d4af37; margin: 15px 0;">R$47,00</h1>
         <p style="font-size: 20px; color: #bbb;">ou 11x de R$5,22</p>
-        <p style="font-size: 16px; color: #888; margin-top: 25px;">Acesso vitalício + 7 dias de garantia incondicional</p>
+        <p style="font-size: 16px; color: #888; margin-top: 25px;">
+          Acesso vitalício + 7 dias de garantia incondicional
+        </p>
       </div>
     </div>
 
@@ -884,12 +897,15 @@
         style="display:inline-block; background:linear-gradient(90deg,#d4af37,#b9972f); color:#000; font-weight:700; font-size:22px; padding:20px 45px; border-radius:14px; text-decoration:none; box-shadow:0 0 30px rgba(212,175,55,0.5); transition:0.3s;">
         QUERO TRANSFORMAR MINHA MENTE
       </a>
-      <p style="font-size:14px; color:#777; margin-top:25px;">Pagamento 100% seguro via Kiwify 🔒</p>
+      <p style="font-size:14px; color:#777; margin-top:25px;">
+        Pagamento 100% seguro via Kiwify 🔒
+      </p>
     </div>
 
     <!-- Selo -->
     <div style="margin-top:50px;">
-      <img src="https://i.postimg.cc/1XdyzG7y/Design-sem-nome-35-Photoroom.png" alt="Selo de Segurança" 
+      <img src="https://i.postimg.cc/1XdyzG7y/Design-sem-nome-35-Photoroom.png" 
+           alt="Selo de Segurança" 
            style="width:200px; border-radius:50%; box-shadow:0 0 20px rgba(212,175,55,0.25);">
       <p style="font-size:14px; color:#aaa; margin-top:10px;">
         Você tem 7 dias para testar o conteúdo. Se não gostar, devolvemos 100% do valor.
@@ -899,57 +915,62 @@
 
   <style>
     .oferta-box {
-  position: relative;
-  border-radius: 25px;
-  overflow: hidden;
-  background: #111;
-  box-shadow: 0 0 25px rgba(212,175,55,0.15);
-  padding: 70px 30px;
-}
+      position: relative;
+      border-radius: 25px;
+      overflow: hidden;
+      background: #111;
+      box-shadow: 0 0 25px rgba(212,175,55,0.15);
+      padding: 70px 30px;
+    }
 
-/* Luz girando (a mesma que você gostou) */
-.moldura-animada {
-  position: absolute;
-  inset: 0;
-  border-radius: 25px;
-  pointer-events: none;
-  background: conic-gradient(
-    from 0deg,
-    rgba(255,255,255,0) 0deg,
-    rgba(255,245,200,1) 120deg, /* dourado quase branco */
-    rgba(255,255,255,0) 160deg
-  );
-  filter: blur(4px); /* brilho suave e difuso */
-  box-shadow: inset 0 0 8px rgba(212,175,55,0.3); /* sombra interna dourada */
-  animation: girarLuz 5s linear infinite;
-  mix-blend-mode: screen;
-  z-index: 1;
-}
+    /* ====== LUZ GIRANDO (nas bordas) ====== */
+    .moldura-animada {
+      position: absolute;
+      inset: 0;
+      border-radius: 25px;
+      pointer-events: none;
+      background: conic-gradient(
+        from 0deg,
+        rgba(255,255,255,0) 0deg,
+        rgba(255,245,200,1) 120deg, /* dourado quase branco */
+        rgba(255,255,255,0) 160deg
+      );
+      filter: blur(4px); /* brilho suave e difuso */
+      box-shadow: inset 0 0 8px rgba(212,175,55,0.3); /* brilho interno fixo */
+      animation: girarLuz 5s linear infinite;
+      mix-blend-mode: screen;
+      z-index: 1;
+    }
 
-/* Esta camada é o “tampão” que esconde o meio */
-.mascara-centro {
-  position: absolute;
-  inset: 7px;              /* controla a espessura da faixa que fica visível */
-  border-radius: 20px;
-  background: #111;        /* mesma cor de fundo do card */
-  z-index: 2;
-}
+    /* ====== MÁSCARA INTERNA (tampa o meio, mostra só as linhas) ====== */
+    .mascara-centro {
+      position: absolute;
+      inset: 7px; /* controla a espessura visível da borda */
+      border-radius: 20px;
+      background: #111; /* mesma cor do fundo do card */
+      z-index: 2;
+    }
 
-/* Borda dourada fixa por cima de tudo */
-.oferta-box::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 25px;
-  border: 4px solid #d4af37;
-  z-index: 3;
-}
+    /* ====== BORDA DOURADA FIXA ====== */
+    .oferta-box::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 25px;
+      border: 4px solid #d4af37;
+      z-index: 3;
+    }
 
-@keyframes girarLuz {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+    @keyframes girarLuz {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
 
+    @media (max-width:768px) {
+      .oferta-box {
+        padding: 40px 20px;
+      }
+    }
   </style>
 </section>
 
@@ -1059,6 +1080,7 @@
 }
 ::-webkit-scrollbar-thumb { animation: scrollPulse 2.6s ease-in-out infinite; }
 </style>
+
 
 
 
