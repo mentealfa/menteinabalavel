@@ -856,16 +856,13 @@
 </script>
 </section>
 
-<!-- SEÇÃO 5 - OFERTA COM LUZ DOURADA GIRANDO AO REDOR -->
+<!-- SEÇÃO 5 - OFERTA COM LUZ DOURADA PERCORRENDO A MOLDURA -->
 <section id="oferta" style="background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%); text-align: center; padding: 100px 20px; position: relative;">
   <h2 style="font-size: 36px; color: #d4af37; margin-bottom: 10px;">Tenha acesso ao <span style="color:#fff;">Mente Inabalável</span></h2>
   <p style="font-size: 18px; color: #ccc; margin-bottom: 35px;">Domine sua mente. Quebre seus limites. Reconstrua quem você é.</p>
 
   <div class="oferta-wrap" style="max-width: 880px; margin: 0 auto; position: relative;">
-    <div class="oferta-box">
-      <!-- Moldura dourada com efeito de rotação -->
-      <div class="moldura-animada"></div>
-
+    <div class="oferta-box cardluz">
       <!-- Conteúdo -->
       <div style="position:relative; z-index:5;">
         <div style="display:flex; justify-content:center; margin-bottom:30px;">
@@ -910,54 +907,70 @@
       background: #111;
       box-shadow: 0 0 25px rgba(212,175,55,0.15);
       padding: 70px 30px;
-      border: 2px solid rgba(212,175,55,0.4);
+      cursor: pointer;
     }
 
-    /* === NOVA MOLDURA ANIMADA COM LUZ CIRCULANDO === */
-    .moldura-animada {
-      position: absolute;
-      inset: 0;
-      border-radius: 25px;
-      z-index: 1;
-      pointer-events: none;
-      border: 2px solid transparent;
-      background: linear-gradient(90deg, rgba(212,175,55,0.8), rgba(255,255,200,1), rgba(212,175,55,0.8)) border-box;
-      -webkit-mask:
-        linear-gradient(#fff 0 0) padding-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-              mask-composite: exclude;
-      animation: girarLuz 5s linear infinite;
-      box-shadow: 0 0 30px rgba(212,175,55,0.3);
-    }
-
-    @keyframes girarLuz {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    .moldura-animada::before {
+    /* ======= CAMADA DA BORDA DOURADA FIXA ======= */
+    .cardluz::after {
       content: "";
       position: absolute;
       inset: 0;
       border-radius: 25px;
       padding: 2px;
-      background: conic-gradient(from 0deg, 
-        rgba(255,255,255,0) 0%, 
-        rgba(255,230,120,0.7) 25%, 
-        rgba(212,175,55,1) 50%, 
-        rgba(255,255,255,0) 100%);
+      background: linear-gradient(90deg, #d4af37, #b8860b, #d4af37);
+      background-size: 200% 200%;
       -webkit-mask:
-        linear-gradient(#000 0 0) content-box, 
-        linear-gradient(#000 0 0);
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
               mask-composite: exclude;
-      animation: girarLuz 5s linear infinite;
-      filter: blur(1px);
+      z-index: 1;
+      transition: opacity 0.3s linear;
+      opacity: 1;
+    }
+
+    /* ======= CAMADA DA LUZ PERCORRENDO ======= */
+    .cardluz::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(0deg);
+      width: 150%;
+      height: 150%;
+      border-radius: 25px;
+      background: conic-gradient(
+        from 0deg,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0),
+        rgba(255,220,100,0.7),
+        rgba(255,255,255,0)
+      );
+      animation: rodar 5s linear infinite;
+      z-index: 2;
+      mix-blend-mode: screen;
+      opacity: 0.9;
+    }
+
+    /* ======= ANIMAÇÃO DO BRILHO ======= */
+    @keyframes rodar {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    .cardluz:hover::before {
+      opacity: 1;
+      filter: brightness(1.4);
+    }
+
+    @media (max-width:768px) {
+      .oferta-box {
+        padding: 40px 20px;
+      }
     }
   </style>
 </section>
@@ -1068,6 +1081,7 @@
 }
 ::-webkit-scrollbar-thumb { animation: scrollPulse 2.6s ease-in-out infinite; }
 </style>
+
 
 
 
