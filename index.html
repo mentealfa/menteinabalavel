@@ -726,14 +726,14 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
 
   /*
    * Zonas dos cards em % do tamanho da seção (aspect-ratio 1920/3220).
-   * Cada objeto representa um card: top, left, w (width), h (height).
-   * Os valores espelham exatamente as classes .dep-tl/.dep-tr/.dep-bl/.dep-br.
+   * Valores medidos pixel a pixel diretamente do arquivo dep-cards.png (1920x3220).
+   * TL/TR: cards do topo  — BL/BR: cards do rodapé
    */
   var ZONES = [
-    { top: 0.214, left: 0.144, w: 0.346, h: 0.207 }, /* topo-esquerda  */
-    { top: 0.213, left: 0.533, w: 0.312, h: 0.207 }, /* topo-direita   */
-    { top: 0.458, left: 0.144, w: 0.346, h: 0.207 }, /* baixo-esquerda */
-    { top: 0.458, left: 0.533, w: 0.312, h: 0.207 }, /* baixo-direita  */
+    { top: 0.2137, left: 0.1432, w: 0.3474, h: 0.2860 }, /* topo-esquerda  */
+    { top: 0.2115, left: 0.5328, w: 0.3125, h: 0.2882 }, /* topo-direita   */
+    { top: 0.5000, left: 0.1443, w: 0.3229, h: 0.1652 }, /* baixo-esquerda */
+    { top: 0.5000, left: 0.5328, w: 0.3125, h: 0.1655 }, /* baixo-direita  */
   ];
 
   /* Um cometa por card, com offset de fase para não ficarem sincronizados */
