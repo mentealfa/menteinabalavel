@@ -476,27 +476,12 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
 <!-- ═══════════════════════════════════
          MÓDULOS + OFERTA (UNIFICADO)
 ═══════════════════════════════════ -->
-<section style="margin:0;padding:0;width:100%;display:block;overflow:hidden;background:#0a0a0a;" id="oferta">
+<section style="margin:0;padding:0;width:100%;display:block;overflow:hidden;background:#0a0a0a;margin-top:-80px;position:relative;z-index:10;" id="oferta">
   <div style="position:relative;width:100%;line-height:0;">
     <img src="modulos-oferta.png" alt="Módulos e Oferta" style="width:100%;display:block;">
-
-    <!-- Hotspot invisível sobre o botão de compra na imagem -->
     <a href="https://pay.kiwify.com.br/ltnQQJI" target="_blank"
       id="hsCompra"
-      style="
-        position:absolute;
-        display:block;
-        z-index:10;
-        border-radius:50px;
-        background:transparent;
-        cursor:pointer;
-        /* Ajuste top/left/width/height após ver a imagem renderizada */
-        bottom:4.5%;
-        left:50%;
-        transform:translateX(-50%);
-        width:38%;
-        height:5%;
-      "
+      style="position:absolute;display:block;z-index:10;border-radius:50px;background:transparent;cursor:pointer;bottom:4.5%;left:50%;transform:translateX(-50%);width:38%;height:5%;"
       title="Garantir Acesso"
       onmouseover="this.style.boxShadow='0 0 8px 6px rgba(245,166,35,.70), 0 0 24px 12px rgba(232,197,106,.45), 0 0 55px 20px rgba(201,153,42,.25)'"
       onmouseout="this.style.boxShadow='none'"
@@ -507,80 +492,53 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
 <!-- ═══════════════════════════════════
          GARANTIA + FAQ
 ═══════════════════════════════════ -->
-<section style="margin:0;padding:0;width:100%;display:block;overflow:hidden;background:#0a0a0a;position:relative;" id="garantia">
+<section style="margin:0;padding:0;width:100%;display:block;overflow:hidden;background:#0A0A0A;position:relative;" id="garantia">
 
   <!-- IMAGEM GARANTIA -->
   <div style="width:100%;line-height:0;">
     <img src="garantia.png" alt="Garantia 7 Dias" style="width:100%;display:block;">
   </div>
 
-  <!-- FAQ — "encaixado" na área branca da imagem -->
-  <div style="
-    width:100%;
-    background: linear-gradient(180deg, #f5f0e8 0%, #ede8df 100%);
-    margin-top:-2px;
-    padding: 64px 5vw 80px;
-  ">
+  <!-- FAQ — fundo dark igual ao site -->
+  <div style="width:100%;background:#0A0A0A;padding:80px 5vw 90px;margin-top:-2px;">
     <div class="container-sm">
 
       <div class="text-center" style="margin-bottom:48px;">
-        <span class="eyebrow rv" style="
-          color:#8B5E0A;
-          border-color:rgba(139,94,10,.35);
-          background:rgba(139,94,10,.08);
-        ">Dúvidas Frequentes</span>
+        <span class="eyebrow rv">Dúvidas Frequentes</span>
         <div class="divider-gold rv"></div>
-        <h2 class="stitle rv" style="color:#1A1208;">Tudo que você precisa saber<br>antes de decidir</h2>
+        <h2 class="stitle rv">Tudo que você precisa saber<br>antes de decidir</h2>
       </div>
 
-      <div class="faq-list" style="--faq-bg:#fff;--faq-border:rgba(139,94,10,.15);--faq-hover:rgba(139,94,10,.06);--faq-text:#2A1F0A;--faq-muted:#6B5B3E;">
+      <div class="faq-list">
 
-        <details class="faq-item rv" style="background:var(--faq-bg);border-color:var(--faq-border);">
-          <summary class="faq-q" style="color:var(--faq-text);">
-            Como recebo meu acesso ao programa?
-            <span class="faq-chevron" style="background:rgba(139,94,10,.1);border-color:rgba(139,94,10,.25);color:#8B5E0A;">▾</span>
-          </summary>
-          <div class="faq-a" style="color:var(--faq-muted);">Imediatamente após a confirmação do pagamento, você recebe um e-mail com seus dados de acesso à área de membros. É automático — você não precisa esperar nada.</div>
+        <details class="faq-item rv">
+          <summary class="faq-q">Como recebo meu acesso ao programa?<span class="faq-chevron">▾</span></summary>
+          <div class="faq-a">Imediatamente após a confirmação do pagamento, você recebe um e-mail com seus dados de acesso à área de membros. É automático — você não precisa esperar nada.</div>
         </details>
 
-        <details class="faq-item rv d1" style="background:var(--faq-bg);border-color:var(--faq-border);">
-          <summary class="faq-q" style="color:var(--faq-text);">
-            Por quanto tempo tenho acesso ao conteúdo?
-            <span class="faq-chevron" style="background:rgba(139,94,10,.1);border-color:rgba(139,94,10,.25);color:#8B5E0A;">▾</span>
-          </summary>
-          <div class="faq-a" style="color:var(--faq-muted);">O acesso é vitalício. Todas as futuras atualizações e novos conteúdos que forem adicionados ao programa estão inclusos sem custo adicional.</div>
+        <details class="faq-item rv d1">
+          <summary class="faq-q">Por quanto tempo tenho acesso ao conteúdo?<span class="faq-chevron">▾</span></summary>
+          <div class="faq-a">O acesso é vitalício. Todas as futuras atualizações e novos conteúdos que forem adicionados ao programa estão inclusos sem custo adicional.</div>
         </details>
 
-        <details class="faq-item rv d2" style="background:var(--faq-bg);border-color:var(--faq-border);">
-          <summary class="faq-q" style="color:var(--faq-text);">
-            Este programa serve para iniciantes?
-            <span class="faq-chevron" style="background:rgba(139,94,10,.1);border-color:rgba(139,94,10,.25);color:#8B5E0A;">▾</span>
-          </summary>
-          <div class="faq-a" style="color:var(--faq-muted);">Sim. O conteúdo foi estruturado para qualquer nível. O método parte da sua realidade atual e constrói a partir daí.</div>
+        <details class="faq-item rv d2">
+          <summary class="faq-q">Este programa serve para iniciantes?<span class="faq-chevron">▾</span></summary>
+          <div class="faq-a">Sim. O conteúdo foi estruturado para qualquer nível. O método parte da sua realidade atual e constrói a partir daí.</div>
         </details>
 
-        <details class="faq-item rv" style="background:var(--faq-bg);border-color:var(--faq-border);">
-          <summary class="faq-q" style="color:var(--faq-text);">
-            Quanto tempo preciso dedicar por dia?
-            <span class="faq-chevron" style="background:rgba(139,94,10,.1);border-color:rgba(139,94,10,.25);color:#8B5E0A;">▾</span>
-          </summary>
-          <div class="faq-a" style="color:var(--faq-muted);">Com 20 a 30 minutos diários você já consegue progredir de forma consistente. A ideia é encaixar na rotina, não substituir ela.</div>
+        <details class="faq-item rv">
+          <summary class="faq-q">Quanto tempo preciso dedicar por dia?<span class="faq-chevron">▾</span></summary>
+          <div class="faq-a">Com 20 a 30 minutos diários você já consegue progredir de forma consistente. A ideia é encaixar na rotina, não substituir ela.</div>
         </details>
 
-        <details class="faq-item rv d1" style="background:var(--faq-bg);border-color:var(--faq-border);">
-          <summary class="faq-q" style="color:var(--faq-text);">
-            A garantia funciona de verdade?
-            <span class="faq-chevron" style="background:rgba(139,94,10,.1);border-color:rgba(139,94,10,.25);color:#8B5E0A;">▾</span>
-          </summary>
-          <div class="faq-a" style="color:var(--faq-muted);">Sim, sem letras miúdas. Se dentro de 7 dias você não estiver satisfeito por qualquer motivo, basta enviar um e-mail e fazemos o reembolso integral. O risco é 100% nosso.</div>
+        <details class="faq-item rv d1">
+          <summary class="faq-q">A garantia funciona de verdade?<span class="faq-chevron">▾</span></summary>
+          <div class="faq-a">Sim, sem letras miúdas. Se dentro de 7 dias você não estiver satisfeito por qualquer motivo, basta enviar um e-mail e fazemos o reembolso integral. O risco é 100% nosso.</div>
         </details>
 
-        <details class="faq-item rv d2" style="background:var(--faq-bg);border-color:var(--faq-border);">
-          <summary class="faq-q" style="color:var(--faq-text);">
-            O programa é em PDF ou tem vídeos?
-            <span class="faq-chevron" style="background:rgba(139,94,10,.1);border-color:rgba(139,94,10,.25);color:#8B5E0A;">▾</span>
-          </summary>
-          <div class="faq-a" style="color:var(--faq-muted);">O programa atual é em formato ebook (PDF), com conteúdo estruturado e aplicável. Vídeos e áudios estão previstos para futuras atualizações gratuitas para alunos.</div>
+        <details class="faq-item rv d2">
+          <summary class="faq-q">O programa é em PDF ou tem vídeos?<span class="faq-chevron">▾</span></summary>
+          <div class="faq-a">O programa atual é em formato ebook (PDF), com conteúdo estruturado e aplicável. Vídeos e áudios estão previstos para futuras atualizações gratuitas para alunos.</div>
         </details>
 
       </div>
