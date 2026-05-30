@@ -53,10 +53,32 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;o
 .sdesc{color:var(--muted);font-size:16px;line-height:1.8;max-width:680px;}
 .text-center{text-align:center;}.mx-auto{margin-left:auto;margin-right:auto;display:block;}
 
-/* REVEAL */
-.rv{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s ease;}
+/* REVEAL — elementos internos (HTML) */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}
 .rv.v{opacity:1;transform:none;}
 .rv.d1{transition-delay:.1s;}.rv.d2{transition-delay:.2s;}.rv.d3{transition-delay:.3s;}.rv.d4{transition-delay:.4s;}
+
+/* REVEAL — seções inteiras (funciona com filhos position:absolute) */
+.sr-wrap{
+  opacity:0;
+  transform:translateY(52px);
+  transition:opacity .95s cubic-bezier(.22,1,.36,1), transform .95s cubic-bezier(.22,1,.36,1);
+  will-change:opacity,transform;
+}
+.sr-wrap.sr-in{opacity:1;transform:none;}
+
+/* variante: fade simples sem movimento (para seções muito grandes) */
+.sr-fade{
+  opacity:0;
+  transition:opacity 1s cubic-bezier(.22,1,.36,1);
+  will-change:opacity;
+}
+.sr-fade.sr-in{opacity:1;}
+
+/* delays escalonados para wrappers irmãos */
+.sr-d1{transition-delay:.12s;}
+.sr-d2{transition-delay:.24s;}
+.sr-d3{transition-delay:.36s;}
 
 /* ===== HERO IMAGE ===== */
 .hero-img-wrap{position:relative;width:100%;line-height:0;display:block;background:#0a0a0a;}
@@ -421,6 +443,7 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
 <!-- ═══════════════════════════════════
            DIAGNÓSTICO REAL
 ═══════════════════════════════════ -->
+<div class="sr-wrap">
 <section class="diag-section" id="diagnostico">
   <div class="diag-canvas">
     <img class="layer layer-base"    src="diagnfundo.png"    alt="">
@@ -432,23 +455,29 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
     <img class="layer layer-autor"   src="textoautor.png"   alt="" data-lego="right"  data-lego-delay="300">
   </div>
 </section>
+</div>
 
 <!-- ═══════════════════════════════════
            TRANSFORMATION
 ═══════════════════════════════════ -->
+<div class="sr-wrap">
 <section class="transformation" id="transformacao">
   <div class="transformation-content">
     <img src="transformacao.png" alt="Transformação" style="display:block;">
   </div>
 </section>
+</div>
 
+<div class="sr-wrap">
 <div class="section-divider">
   <img src="divisor.png" alt="">
+</div>
 </div>
 
 <!-- ═══════════════════════════════════
             DEPOIMENTOS
 ═══════════════════════════════════ -->
+<div class="sr-fade">
 <section class="dep-section" id="depoimentos">
   <!-- Fundo -->
   <img id="depBg" class="dep-layer" src="depoimentosessao.png" alt="" aria-hidden="true">
@@ -472,10 +501,12 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
     src="https://res.cloudinary.com/deax6es7v/video/upload/v1762576601/depoimento-mente-inabalavel.mp3_twwfpm.mp3">
   </audio>
 </section>
+</div>
 
 <!-- ═══════════════════════════════════
          MÓDULOS + OFERTA (UNIFICADO)
 ═══════════════════════════════════ -->
+<div class="sr-wrap">
 <section style="margin:0;padding:0;width:100%;display:block;overflow:hidden;background:
 #0a0a0a;margin-top:-9px;position:relative;z-index:10;" id="oferta">
   <div style="position:relative;width:100%;line-height:0;">
@@ -488,11 +519,13 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
       onmouseout="this.style.boxShadow='none'"
     ></a>
   </div>
-</section> 
+</section>
+</div> 
   
 <!-- ═══════════════════════════════════
          GARANTIA + FAQ
 ═══════════════════════════════════ -->
+<div class="sr-wrap">
 <section style="margin:0;padding:0;width:100%;display:block;background:#0A0A0A;position:relative;" id="garantia">
 
   <!-- Wrapper com position:relative para o FAQ ficar sobreposto -->
@@ -563,6 +596,7 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
   <!-- fim wrapper -->
 
 </section>
+</div>
   
 <!-- ═══════════════════════════════════
               EXIT POPUP
@@ -789,76 +823,41 @@ window.addEventListener('scroll', () => {
   sh.classList.toggle('show', window.scrollY > 420);
 }, {passive: true});
 
-/* ===== SCROLL REVEAL PROFISSIONAL ===== */
-(function () {
-  /* 1. Estilo base para os elementos .rv e .rv-section */
-  var style = document.createElement('style');
-  style.textContent = [
-    '.rv{opacity:0;transform:translateY(36px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}',
-    '.rv.v{opacity:1;transform:none;}',
-    '.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}',
-
-    /* Seções inteiras: fade in + sobe 48px */
-    '.rv-section{opacity:0;transform:translateY(48px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);}',
-    '.rv-section.v{opacity:1;transform:none;}',
-
-    /* Variantes de direção para seções */
-    '.rv-left{opacity:0;transform:translateX(-52px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1);}',
-    '.rv-left.v{opacity:1;transform:none;}',
-    '.rv-right{opacity:0;transform:translateX(52px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1);}',
-    '.rv-right.v{opacity:1;transform:none;}',
-    '.rv-zoom{opacity:0;transform:scale(.94);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1);}',
-    '.rv-zoom.v{opacity:1;transform:none;}'
-  ].join('');
-  document.head.appendChild(style);
-
-  /* 2. Marca as seções principais com rv-section */
-  var sectionSelectors = [
-    '#diagnostico',
-    '.transformation',
-    '.section-divider',
-    '#depoimentos',
-    '#oferta',
-    '#garantia',
-    '.faq',
-    '.final-cta',
-    'footer'
-  ];
-  sectionSelectors.forEach(function (sel) {
-    var els = document.querySelectorAll(sel);
-    els.forEach(function (el) {
-      if (!el.classList.contains('rv-section')) {
-        el.classList.add('rv-section');
+/* ===== SCROLL REVEAL ===== */
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('sr-in');
+        io.unobserve(e.target);
       }
     });
-  });
+  }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
 
-  /* 3. Marca a seção de depoimentos com rv-zoom (escala) */
-  var depSection = document.getElementById('depoimentos');
-  if (depSection) {
-    depSection.classList.remove('rv-section');
-    depSection.classList.add('rv-zoom');
-  }
-
-  /* 4. IntersectionObserver — threshold baixo para disparar cedo */
-  var ioOptions = { threshold: 0.06, rootMargin: '0px 0px -40px 0px' };
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('v');
-        io.unobserve(entry.target); /* animação roda só uma vez */
-      }
-    });
-  }, ioOptions);
-
-  /* 5. Observa todos os elementos elegíveis */
-  var allReveal = document.querySelectorAll('.rv, .rv-section, .rv-left, .rv-right, .rv-zoom');
-  allReveal.forEach(function (el) {
-    /* Elementos já no viewport ao carregar → anima imediatamente */
-    if (el.getBoundingClientRect().top < window.innerHeight - 40) {
-      el.classList.add('v');
+  /* Seções de imagem: sr-wrap e sr-fade */
+  document.querySelectorAll('.sr-wrap, .sr-fade').forEach(function(el){
+    if(el.getBoundingClientRect().top < window.innerHeight - 40){
+      el.classList.add('sr-in');
     } else {
       io.observe(el);
+    }
+  });
+
+  /* Elementos HTML internos: .rv */
+  var ioRv = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('v');
+        ioRv.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.rv').forEach(function(el){
+    if(el.getBoundingClientRect().top < window.innerHeight - 40){
+      el.classList.add('v');
+    } else {
+      ioRv.observe(el);
     }
   });
 })();
