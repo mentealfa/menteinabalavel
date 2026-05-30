@@ -474,151 +474,120 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
 </section>
 
 <!-- ═══════════════════════════════════
-      SOLUTION — MÓDULOS + IMAGEM
+         MÓDULOS + OFERTA (UNIFICADO)
 ═══════════════════════════════════ -->
-<section class="solution" id="modulos">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:56px;">
-      <span class="eyebrow rv">O Método</span>
-      <div class="divider-gold rv"></div>
-      <h2 class="stitle rv">O que você vai desbloquear<br>dentro do programa</h2>
-      <p class="sdesc mx-auto rv">Cada módulo remove um bloqueio específico e instala um padrão mental de alta performance no lugar.</p>
-    </div>
+<section style="margin:0;padding:0;width:100%;display:block;overflow:hidden;background:#0a0a0a;" id="oferta">
+  <div style="position:relative;width:100%;line-height:0;">
+    <img src="modulos-oferta.png" alt="Módulos e Oferta" style="width:100%;display:block;">
 
-    <div class="module-img-wrap rv" style="position:relative;cursor:pointer;" onclick="window.open('https://pay.kiwify.com.br/ltnQQJI')">
-      <img src="img/modulos.png" alt="Módulos do Programa" style="width:100%;display:block;border-radius:6px;">
-    </div>
-
-    <div class="text-center rv" style="margin-top:40px;">
-      <p style="margin-top:12px;font-size:12px;color:#444;">🔒 Acesso imediato · Garantia de 7 dias</p>
-    </div>
+    <!-- Hotspot invisível sobre o botão de compra na imagem -->
+    <a href="https://pay.kiwify.com.br/ltnQQJI" target="_blank"
+      id="hsCompra"
+      style="
+        position:absolute;
+        display:block;
+        z-index:10;
+        border-radius:50px;
+        background:transparent;
+        cursor:pointer;
+        /* Ajuste top/left/width/height após ver a imagem renderizada */
+        bottom:4.5%;
+        left:50%;
+        transform:translateX(-50%);
+        width:38%;
+        height:5%;
+      "
+      title="Garantir Acesso"
+      onmouseover="this.style.boxShadow='0 0 8px 6px rgba(245,166,35,.70), 0 0 24px 12px rgba(232,197,106,.45), 0 0 55px 20px rgba(201,153,42,.25)'"
+      onmouseout="this.style.boxShadow='none'"
+    ></a>
   </div>
 </section>
-
+  
 <!-- ═══════════════════════════════════
-              BONUS
+         GARANTIA + FAQ
 ═══════════════════════════════════ -->
-<section class="section bonuses">
-  <div class="container-sm">
-    <div class="text-center" style="margin-bottom:52px;">
-      <span class="eyebrow rv">Bônus Exclusivos</span>
-      <div class="divider-gold rv"></div>
-      <h2 class="stitle rv">Tudo que você leva junto com o programa</h2>
-    </div>
-    <div class="bonus-cards">
-      <div class="bonus-card rv">
-        <div class="bonus-num"><div class="bonus-tag">Bônus</div><div class="bonus-n">01</div></div>
-        <div class="bonus-body"><h4>Guia de Rotina de Alta Performance</h4><p>O protocolo de manhã e noite para operar no seu pico consistentemente — adaptado para a realidade brasileira.</p><div class="bonus-val">Valor: R$47 — Incluso gratuitamente</div></div>
+<section style="margin:0;padding:0;width:100%;display:block;overflow:hidden;background:#0a0a0a;position:relative;" id="garantia">
+
+  <!-- IMAGEM GARANTIA -->
+  <div style="width:100%;line-height:0;">
+    <img src="garantia.png" alt="Garantia 7 Dias" style="width:100%;display:block;">
+  </div>
+
+  <!-- FAQ — "encaixado" na área branca da imagem -->
+  <div style="
+    width:100%;
+    background: linear-gradient(180deg, #f5f0e8 0%, #ede8df 100%);
+    margin-top:-2px;
+    padding: 64px 5vw 80px;
+  ">
+    <div class="container-sm">
+
+      <div class="text-center" style="margin-bottom:48px;">
+        <span class="eyebrow rv" style="
+          color:#8B5E0A;
+          border-color:rgba(139,94,10,.35);
+          background:rgba(139,94,10,.08);
+        ">Dúvidas Frequentes</span>
+        <div class="divider-gold rv"></div>
+        <h2 class="stitle rv" style="color:#1A1208;">Tudo que você precisa saber<br>antes de decidir</h2>
       </div>
-      <div class="bonus-card rv d1">
-        <div class="bonus-num"><div class="bonus-tag">Bônus</div><div class="bonus-n">02</div></div>
-        <div class="bonus-body"><h4>Mapa Mental de Clareza de Objetivos</h4><p>Ferramenta visual para definir com precisão onde você quer chegar e quais passos concretos vão te levar até lá.</p><div class="bonus-val">Valor: R$37 — Incluso gratuitamente</div></div>
-      </div>
-      <div class="bonus-card rv d2">
-        <div class="bonus-num"><div class="bonus-tag">Bônus</div><div class="bonus-n">03</div></div>
-        <div class="bonus-body"><h4>Acesso ao Grupo de Network Exclusivo</h4><p>Comunidade no WhatsApp para troca de experiências, suporte e crescimento com outros alunos comprometidos.</p><div class="bonus-val">Incluso gratuitamente</div></div>
+
+      <div class="faq-list" style="--faq-bg:#fff;--faq-border:rgba(139,94,10,.15);--faq-hover:rgba(139,94,10,.06);--faq-text:#2A1F0A;--faq-muted:#6B5B3E;">
+
+        <details class="faq-item rv" style="background:var(--faq-bg);border-color:var(--faq-border);">
+          <summary class="faq-q" style="color:var(--faq-text);">
+            Como recebo meu acesso ao programa?
+            <span class="faq-chevron" style="background:rgba(139,94,10,.1);border-color:rgba(139,94,10,.25);color:#8B5E0A;">▾</span>
+          </summary>
+          <div class="faq-a" style="color:var(--faq-muted);">Imediatamente após a confirmação do pagamento, você recebe um e-mail com seus dados de acesso à área de membros. É automático — você não precisa esperar nada.</div>
+        </details>
+
+        <details class="faq-item rv d1" style="background:var(--faq-bg);border-color:var(--faq-border);">
+          <summary class="faq-q" style="color:var(--faq-text);">
+            Por quanto tempo tenho acesso ao conteúdo?
+            <span class="faq-chevron" style="background:rgba(139,94,10,.1);border-color:rgba(139,94,10,.25);color:#8B5E0A;">▾</span>
+          </summary>
+          <div class="faq-a" style="color:var(--faq-muted);">O acesso é vitalício. Todas as futuras atualizações e novos conteúdos que forem adicionados ao programa estão inclusos sem custo adicional.</div>
+        </details>
+
+        <details class="faq-item rv d2" style="background:var(--faq-bg);border-color:var(--faq-border);">
+          <summary class="faq-q" style="color:var(--faq-text);">
+            Este programa serve para iniciantes?
+            <span class="faq-chevron" style="background:rgba(139,94,10,.1);border-color:rgba(139,94,10,.25);color:#8B5E0A;">▾</span>
+          </summary>
+          <div class="faq-a" style="color:var(--faq-muted);">Sim. O conteúdo foi estruturado para qualquer nível. O método parte da sua realidade atual e constrói a partir daí.</div>
+        </details>
+
+        <details class="faq-item rv" style="background:var(--faq-bg);border-color:var(--faq-border);">
+          <summary class="faq-q" style="color:var(--faq-text);">
+            Quanto tempo preciso dedicar por dia?
+            <span class="faq-chevron" style="background:rgba(139,94,10,.1);border-color:rgba(139,94,10,.25);color:#8B5E0A;">▾</span>
+          </summary>
+          <div class="faq-a" style="color:var(--faq-muted);">Com 20 a 30 minutos diários você já consegue progredir de forma consistente. A ideia é encaixar na rotina, não substituir ela.</div>
+        </details>
+
+        <details class="faq-item rv d1" style="background:var(--faq-bg);border-color:var(--faq-border);">
+          <summary class="faq-q" style="color:var(--faq-text);">
+            A garantia funciona de verdade?
+            <span class="faq-chevron" style="background:rgba(139,94,10,.1);border-color:rgba(139,94,10,.25);color:#8B5E0A;">▾</span>
+          </summary>
+          <div class="faq-a" style="color:var(--faq-muted);">Sim, sem letras miúdas. Se dentro de 7 dias você não estiver satisfeito por qualquer motivo, basta enviar um e-mail e fazemos o reembolso integral. O risco é 100% nosso.</div>
+        </details>
+
+        <details class="faq-item rv d2" style="background:var(--faq-bg);border-color:var(--faq-border);">
+          <summary class="faq-q" style="color:var(--faq-text);">
+            O programa é em PDF ou tem vídeos?
+            <span class="faq-chevron" style="background:rgba(139,94,10,.1);border-color:rgba(139,94,10,.25);color:#8B5E0A;">▾</span>
+          </summary>
+          <div class="faq-a" style="color:var(--faq-muted);">O programa atual é em formato ebook (PDF), com conteúdo estruturado e aplicável. Vídeos e áudios estão previstos para futuras atualizações gratuitas para alunos.</div>
+        </details>
+
       </div>
     </div>
   </div>
-</section>
 
-<!-- ═══════════════════════════════════
-              OFERTA
-═══════════════════════════════════ -->
-<section class="section offer" id="oferta">
-  <div class="offer-glow"></div>
-  <div class="container-xs" style="position:relative;z-index:1;">
-    <div class="offer-box rv">
-      <div class="offer-tag">Condição Especial de Hoje</div>
-      <h2 class="offer-title">Mente Inabalável</h2>
-      <p class="offer-sub">Acesso completo ao programa + todos os bônus</p>
-      <div class="value-stack">
-        <div class="vrow"><span class="vrow-name">Mente Inabalável — 15 Módulos Completos</span><span class="vrow-price">R$197</span></div>
-        <div class="vrow"><span class="vrow-name">Bônus: Guia de Rotina de Alta Performance</span><span class="vrow-price">R$47</span></div>
-        <div class="vrow"><span class="vrow-name">Bônus: Mapa Mental de Clareza</span><span class="vrow-price">R$37</span></div>
-        <div class="vrow"><span class="vrow-name">Bônus: Grupo de Network Exclusivo</span><span class="vrow-price">R$27</span></div>
-        <div class="vtotal"><span class="vtotal-label">Total de valor</span><span class="vtotal-val">R$308</span></div>
-      </div>
-      <div class="price-old">De R$297</div>
-      <div class="price-main"><sup>R$</sup>97</div>
-      <div class="price-note">Pagamento único · Acesso imediato · Vitalício com atualizações</div>
-      <a href="https://pay.kiwify.com.br/ltnQQJI" target="_blank"
-        style="display:inline-block;max-width:480px;width:90%;cursor:pointer;transition:transform .3s ease,filter .3s ease;"
-        onmouseover="this.style.transform='translateY(-3px) scale(1.02)';this.style.filter='drop-shadow(0 16px 40px rgba(201,153,42,.55))'"
-        onmouseout="this.style.transform='none';this.style.filter='none'">
-        <img src="img/btn-comprar.png" alt="Garantir Acesso" style="width:100%;display:block;">
-      </a>
-      <p class="secure-note">🔒 Pagamento 100% seguro · Garantia de 7 dias sem perguntas</p>
-    </div>
-  </div>
 </section>
-
-<!-- ═══════════════════════════════════
-             GARANTIA
-═══════════════════════════════════ -->
-<section class="section-sm guarantee">
-  <div class="container-sm">
-    <div class="guarantee-inner rv">
-      <div class="seal">
-        <div class="seal-days">7</div>
-        <div class="seal-label">dias de<br>garantia</div>
-      </div>
-      <div class="guarantee-text">
-        <h3>Risco Zero da sua parte</h3>
-        <p>Você entra hoje, testa a experiência completa e, se nos primeiros 7 dias não perceber valor real na sua mentalidade e nos seus resultados, devolvemos 100% do seu investimento — sem questionamentos, sem burocracia.</p>
-        <p style="margin-top:12px;">A única forma de perder é não tentar.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════
-                FAQ
-═══════════════════════════════════ -->
-<section class="section faq">
-  <div class="container-sm">
-    <div class="text-center" style="margin-bottom:0;">
-      <span class="eyebrow rv">Dúvidas Frequentes</span>
-      <div class="divider-gold rv"></div>
-      <h2 class="stitle rv">Tudo que você precisa saber antes de decidir</h2>
-    </div>
-    <div class="faq-list">
-      <details class="faq-item rv"><summary class="faq-q">Como recebo meu acesso ao programa?<span class="faq-chevron">▾</span></summary><div class="faq-a">Imediatamente após a confirmação do pagamento, você recebe um e-mail com seus dados de acesso à área de membros. É automático — você não precisa esperar nada.</div></details>
-      <details class="faq-item rv d1"><summary class="faq-q">Por quanto tempo tenho acesso ao conteúdo?<span class="faq-chevron">▾</span></summary><div class="faq-a">O acesso é vitalício. Todas as futuras atualizações e novos conteúdos que forem adicionados ao programa estão inclusos sem custo adicional.</div></details>
-      <details class="faq-item rv d2"><summary class="faq-q">Este programa serve para iniciantes?<span class="faq-chevron">▾</span></summary><div class="faq-a">Sim. O conteúdo foi estruturado para qualquer nível. O método parte da sua realidade atual e constrói a partir daí.</div></details>
-      <details class="faq-item rv"><summary class="faq-q">Quanto tempo preciso dedicar por dia?<span class="faq-chevron">▾</span></summary><div class="faq-a">Com 20 a 30 minutos diários você já consegue progredir de forma consistente. A ideia é encaixar na rotina, não substituir ela.</div></details>
-      <details class="faq-item rv d1"><summary class="faq-q">A garantia funciona de verdade?<span class="faq-chevron">▾</span></summary><div class="faq-a">Sim, sem letras miúdas. Se dentro de 7 dias você não estiver satisfeito por qualquer motivo, basta enviar um e-mail e fazemos o reembolso integral. O risco é 100% nosso.</div></details>
-      <details class="faq-item rv d2"><summary class="faq-q">O programa é em PDF ou tem vídeos?<span class="faq-chevron">▾</span></summary><div class="faq-a">O programa atual é em formato ebook (PDF), com conteúdo estruturado e aplicável. Vídeos e áudios estão previstos para futuras atualizações gratuitas para alunos.</div></details>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════
-              FINAL CTA
-═══════════════════════════════════ -->
-<section class="section final-cta">
-  <div class="final-glow"></div>
-  <div class="container-xs" style="position:relative;z-index:1;">
-    <span class="eyebrow rv">A Decisão é Agora</span>
-    <div class="divider-gold rv"></div>
-    <h2 class="rv">A vida que você quer começa com a <em style="color:var(--gold2)">mentalidade</em> que você ainda não tem</h2>
-    <p class="rv">Cada dia com os mesmos padrões é mais um dia com os mesmos resultados. O próximo passo está aqui.</p>
-    <div class="rv">
-      <a href="https://pay.kiwify.com.br/ltnQQJI" target="_blank"
-        style="display:inline-block;max-width:480px;width:90%;cursor:pointer;transition:transform .3s ease,filter .3s ease;"
-        onmouseover="this.style.transform='translateY(-3px) scale(1.02)';this.style.filter='drop-shadow(0 16px 40px rgba(201,153,42,.55))'"
-        onmouseout="this.style.transform='none';this.style.filter='none'">
-        <img src="img/btn-comprar.png" alt="Garantir Acesso" style="width:100%;display:block;">
-      </a>
-      <p style="margin-top:16px;font-size:12px;color:#3A363A;">🔒 Acesso imediato · Garantia de 7 dias · Pagamento único</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>Mente Inabalável © 2026 — Todos os direitos reservados</p>
-  <p style="margin-top:6px;font-size:11px;color:#2A282A;">Os resultados variam de acordo com o esforço e dedicação individual de cada aluno.</p>
-</footer>
 
 <!-- ═══════════════════════════════════
               EXIT POPUP
