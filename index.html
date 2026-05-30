@@ -730,10 +730,10 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
    * TL/TR: cards do topo  — BL/BR: cards do rodapé
    */
   var ZONES = [
-    { top: 0.2062, left: 0.1426, w: 0.3450, h: 0.2070 }, /* TL */
-    { top: 0.2057, left: 0.5575, w: 0.2838, h: 0.1686 }, /* TR */
-    { top: 0.4520, left: 0.1426, w: 0.3217, h: 0.2070 }, /* BL */
-    { top: 0.4054, left: 0.5313, w: 0.3100, h: 0.2541 }, /* BR */
+    { top: 0.2139, left: 0.1456, w: 0.3451, h: 0.2067 }, /* TL */
+    { top: 0.2130, left: 0.5607, w: 0.2840, h: 0.1685 }, /* TR */
+    { top: 0.4588, left: 0.1456, w: 0.3218, h: 0.2067 }, /* BL */
+    { top: 0.4119, left: 0.5345, w: 0.3102, h: 0.2536 }, /* BR */
   ];
 
   /* Um cometa por card, com offset de fase para não ficarem sincronizados */
@@ -781,14 +781,12 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
     comet.t = (comet.t + comet.speed) % 1;
 
     /* luz lisa pura: gradiente radial, sem tracos, sem bolinha */
-    var Y_OFF = 26 * (H / section.offsetHeight); /* 26px de tela em px de canvas */
     for (var i = 0; i < SEGMENTS; i++){
       var a      = i / SEGMENTS;
       var pt     = ptOnRect(comet.zone, comet.t - a * TAIL_FRAC);
       var fade   = Math.pow(1 - a, 1.8);
       var radius = (1 - a * 0.55) * W * 0.006;
-      var cx = pt.x, cy = pt.y + Y_OFF;
-      var grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+      var grd = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, radius);
       grd.addColorStop(0,   'rgba(255,245,200,' + (fade * 0.60) + ')');
       grd.addColorStop(0.35,'rgba(232,185, 60,' + (fade * 0.35) + ')');
       grd.addColorStop(1,   'rgba(200,130,  0, 0)');
@@ -796,7 +794,7 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
       ctx.globalCompositeOperation = 'lighter';
       ctx.fillStyle = grd;
       ctx.beginPath();
-      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+      ctx.arc(pt.x, pt.y, radius, 0, Math.PI * 2);
       ctx.fill();
       ctx.restore();
     }
