@@ -77,9 +77,9 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;o
 #hs2{left:67.3%;top:70.1%;width:9.9%;height:6.4%;}
 #hs1:hover,#hs2:hover{
   box-shadow:
-    0 0 0 2px rgba(245,166,35,.6),
-    0 0 18px 6px rgba(232,197,106,.45),
-    0 0 40px 14px rgba(201,153,42,.25);
+    0 0 8px 6px  rgba(245,166,35,.70),
+    0 0 24px 12px rgba(232,197,106,.45),
+    0 0 55px 20px rgba(201,153,42,.25);
 }
 
 /* ===== CARROSSEL INFINITO ===== */
@@ -117,6 +117,8 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;o
 .marquee-wrap:hover .marquee-track{
   animation-play-state:paused;
 }
+
+/* PROOF BARS — removido */
 
 /* ===== DIAGNÓSTICO REAL ===== */
 .diag-section{
@@ -230,6 +232,7 @@ img.dep-layer {
 #depParticles { z-index: 1; pointer-events: none; }
 #depText      { z-index: 2; pointer-events: none; }
 #depCards     { z-index: 3; pointer-events: none; }
+/* Canvas de cometas — z-index 4, acima dos cards */
 #depComets    { z-index: 4; pointer-events: none; }
 #depAudioZone {
   position: absolute;
@@ -239,33 +242,11 @@ img.dep-layer {
   background: transparent;
   border: none;
   cursor: pointer;
-  /* border-radius grande para acompanhar o botão arredondado da imagem */
-  border-radius: 50px;
+  border-radius: 6px;
   outline: none;
-  transition: box-shadow .3s ease;
-}
-#depAudioZone:hover {
-  box-shadow:
-    0 0 0 2px rgba(245,166,35,.6),
-    0 0 18px 6px rgba(232,197,106,.45),
-    0 0 40px 14px rgba(201,153,42,.25);
 }
 #depAudioZone.dep-playing {
-  box-shadow:
-    0 0 0 2px rgba(245,166,35,.8),
-    0 0 24px 8px rgba(232,197,106,.55),
-    0 0 50px 18px rgba(201,153,42,.35);
-}
-
-/* ===== BOTÃO DE COMPRA (módulos/oferta) ===== */
-#hsCompra {
-  transition: box-shadow .3s ease;
-}
-#hsCompra:hover {
-  box-shadow:
-    0 0 0 2px rgba(245,166,35,.6),
-    0 0 18px 6px rgba(232,197,106,.45),
-    0 0 40px 14px rgba(201,153,42,.25);
+  box-shadow: 0 0 18px 4px rgba(212,160,23,.45);
 }
 
 /* ===== FAQ PREMIUM ===== */
@@ -275,6 +256,7 @@ img.dep-layer {
   position: relative;
   overflow: hidden;
 }
+/* Glow de fundo */
 .faq-section::before{
   content:'';
   position:absolute;
@@ -284,6 +266,7 @@ img.dep-layer {
   background:radial-gradient(ellipse,rgba(201,153,42,.07) 0%,transparent 65%);
   pointer-events:none;
 }
+/* Linha dourada topo */
 .faq-section::after{
   content:'';
   position:absolute;
@@ -512,7 +495,7 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
        style="display:inline-block;line-height:0;flex-shrink:0;transition:transform .25s ease,filter .25s ease;"
        onmouseover="this.style.transform='translateY(-2px) scale(1.04)';this.style.filter='drop-shadow(0 6px 18px rgba(201,153,42,.55))'"
        onmouseout="this.style.transform='none';this.style.filter='none'">
-      <img src="botãodeacesso.png" alt="Garantir Acesso" style="height:44px;width:220px;object-fit:contain;display:block;">
+      <img src="botãodeacesso.png" alt="Garantir Acesso" style="height:50px;width:280px;object-fit:contain;display:block;">
     </a>
   </div>
 </div>
@@ -569,12 +552,24 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
             DEPOIMENTOS
 ═══════════════════════════════════ -->
 <section class="dep-section" id="depoimentos">
+  <!-- Fundo -->
   <img id="depBg" class="dep-layer" src="depoimentosessao.png" alt="" aria-hidden="true">
+
+  <!-- Partículas douradas (z-index 1) -->
   <canvas id="depParticles" class="dep-layer"></canvas>
+
+  <!-- Textos (z-index 2) -->
   <img id="depText" class="dep-layer" src="dep-textos.png" alt="" aria-hidden="true">
+
+  <!-- Cards de depoimentos (z-index 3) -->
   <img id="depCards" class="dep-layer" src="dep-cards.png" alt="" aria-hidden="true">
+
+  <!-- ✨ Canvas de cometas orbitando os cards (z-index 4) -->
   <canvas id="depComets" class="dep-layer"></canvas>
+
+  <!-- Zona clicável sobre o botão de áudio (z-index 5) -->
   <button id="depAudioZone" aria-label="Ouvir depoimento dos alunos"></button>
+
   <audio id="depAudio" preload="none"
     src="https://res.cloudinary.com/deax6es7v/video/upload/v1762576601/depoimento-mente-inabalavel.mp3_twwfpm.mp3">
   </audio>
@@ -583,23 +578,32 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
 <!-- ═══════════════════════════════════
          MÓDULOS + OFERTA (UNIFICADO)
 ═══════════════════════════════════ -->
-<section style="margin:0;padding:0;width:100%;display:block;overflow:hidden;background:#0a0a0a;margin-top:-9px;position:relative;z-index:10;" id="oferta">
+<section style="margin:0;padding:0;width:100%;display:block;overflow:hidden;background:
+#0a0a0a;margin-top:-9px;position:relative;z-index:10;" id="oferta">
   <div style="position:relative;width:100%;line-height:0;">
     <img src="modulos-oferta.png" alt="Módulos e Oferta" style="width:100%;display:block;">
     <a href="https://pay.kiwify.com.br/ltnQQJI" target="_blank"
       id="hsCompra"
-      style="position:absolute;display:block;z-index:10;border-radius:50px;cursor:pointer;bottom:4.5%;left:50%;transform:translateX(-50%);width:38%;height:5%;"
+      style="position:absolute;display:block;z-index:10;border-radius:50px;background:transparent;cursor:pointer;bottom:4.5%;left:50%;transform:translateX(-50%);width:38%;height:5%;"
       title="Garantir Acesso"
+      onmouseover="this.style.boxShadow='0 0 8px 6px rgba(245,166,35,.70), 0 0 24px 12px rgba(232,197,106,.45), 0 0 55px 20px rgba(201,153,42,.25)'"
+      onmouseout="this.style.boxShadow='none'"
     ></a>
   </div>
-</section>
-
+</section> 
+  
 <!-- ═══════════════════════════════════
          GARANTIA + FAQ
 ═══════════════════════════════════ -->
 <section style="margin:0;padding:0;width:100%;display:block;background:#0A0A0A;position:relative;" id="garantia">
+
+  <!-- Wrapper com position:relative para o FAQ ficar sobreposto -->
   <div style="position:relative;width:100%;line-height:0;">
+
+    <!-- IMAGEM GARANTIA — completa, sem corte -->
     <img src="garantia.png" alt="Garantia 7 Dias" style="width:100%;display:block;">
+
+    <!-- FAQ SOBREPOSTO — cobre exatamente a área branca da imagem -->
     <div style="
       position:absolute;
       top:53%;
@@ -655,9 +659,13 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
         </div>
       </div>
     </div>
-  </div>
-</section>
+    <!-- fim FAQ sobreposto -->
 
+  </div>
+  <!-- fim wrapper -->
+
+</section>
+  
 <!-- ═══════════════════════════════════
               EXIT POPUP
 ═══════════════════════════════════ -->
@@ -762,29 +770,40 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
   var ctx = canvas.getContext('2d');
   var W, H;
 
+  /*
+   * Zonas dos cards em % do tamanho da seção (aspect-ratio 1920/3220).
+   * Valores medidos pixel a pixel diretamente do arquivo dep-cards.png (1920x3220).
+   * TL/TR: cards do topo  — BL/BR: cards do rodapé
+   */
   var ZONES = [
-    { top: 0.2139, left: 0.1456, w: 0.3451, h: 0.2067 },
-    { top: 0.2130, left: 0.5607, w: 0.2840, h: 0.1685 },
-    { top: 0.4588, left: 0.1456, w: 0.3218, h: 0.2067 },
-    { top: 0.4119, left: 0.5345, w: 0.3102, h: 0.2536 },
+    { top: 0.2139, left: 0.1456, w: 0.3451, h: 0.2067 }, /* TL */
+    { top: 0.2130, left: 0.5607, w: 0.2840, h: 0.1685 }, /* TR */
+    { top: 0.4588, left: 0.1456, w: 0.3218, h: 0.2067 }, /* BL */
+    { top: 0.4119, left: 0.5345, w: 0.3102, h: 0.2536 }, /* BR */
   ];
 
+  /* Um cometa por card, com offset de fase para não ficarem sincronizados */
   var comets = ZONES.map(function(z, i){
     return {
       zone  : z,
-      t     : i * 0.25,
-      speed : 0.0010 + i * 0.00015
+      t     : i * 0.25,   /* fase inicial escalonada (0..1) */
+      speed : 0.0010 + i * 0.00015  /* velocidades ligeiramente diferentes */
     };
   });
 
-  var TAIL_FRAC = 0.28;
-  var SEGMENTS  = 80;
+  var TAIL_FRAC = 0.28; /* comprimento da cauda como fração do perímetro */
+  var SEGMENTS  = 80;   /* suavidade da cauda */
 
   function resize(){
     W = canvas.width  = section.offsetWidth;
     H = canvas.height = section.offsetHeight;
   }
 
+  /*
+   * Retorna {x,y} de um ponto na borda do retângulo descrito por 'z',
+   * onde t=0..1 percorre o perímetro no sentido horário a partir do
+   * canto superior-esquerdo.
+   */
   function ptOnRect(z, t){
     t = ((t % 1) + 1) % 1;
     var x = z.left * W,
@@ -793,17 +812,22 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
         h = z.h    * H;
     var P = 2 * (w + h);
     var d = t * P;
-    if (d < w)       return { x: x + d,     y: y       };
+
+    if (d < w)       return { x: x + d,     y: y       }; /* topo  → */
     d -= w;
-    if (d < h)       return { x: x + w,     y: y + d   };
+    if (d < h)       return { x: x + w,     y: y + d   }; /* direita ↓ */
     d -= h;
-    if (d < w)       return { x: x + w - d, y: y + h   };
+    if (d < w)       return { x: x + w - d, y: y + h   }; /* base  ← */
     d -= w;
-                     return { x: x,         y: y + h - d };
+                     return { x: x,         y: y + h - d }; /* esquerda ↑ */
   }
 
   function drawComet(comet){
+    /* Atualiza posição */
     comet.t = (comet.t + comet.speed) % 1;
+
+    /* luz lisa: tracos continuos com fade — zero bolinhas */
+    /* camadas de glow: mais larga+suave fora, mais fina+brilhante dentro */
     var layers = [
       { lw: 9,  alpha: 0.07 },
       { lw: 5,  alpha: 0.13 },
@@ -869,13 +893,18 @@ window.addEventListener('scroll', () => {
 
 /* ===== SCROLL REVEAL PROFISSIONAL ===== */
 (function () {
+  /* 1. Estilo base para os elementos .rv e .rv-section */
   var style = document.createElement('style');
   style.textContent = [
     '.rv{opacity:0;transform:translateY(36px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}',
     '.rv.v{opacity:1;transform:none;}',
     '.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}',
+
+    /* Seções inteiras: fade in + sobe 48px */
     '.rv-section{opacity:0;transform:translateY(48px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);}',
     '.rv-section.v{opacity:1;transform:none;}',
+
+    /* Variantes de direção para seções */
     '.rv-left{opacity:0;transform:translateX(-52px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1);}',
     '.rv-left.v{opacity:1;transform:none;}',
     '.rv-right{opacity:0;transform:translateX(52px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1);}',
@@ -885,35 +914,49 @@ window.addEventListener('scroll', () => {
   ].join('');
   document.head.appendChild(style);
 
+  /* 2. Marca as seções principais com rv-section */
   var sectionSelectors = [
-    '#diagnostico','.transformation','.section-divider',
-    '#depoimentos','#oferta','#garantia','.faq','.final-cta','footer'
+    '#diagnostico',
+    '.transformation',
+    '.section-divider',
+    '#depoimentos',
+    '#oferta',
+    '#garantia',
+    '.faq',
+    '.final-cta',
+    'footer'
   ];
   sectionSelectors.forEach(function (sel) {
     var els = document.querySelectorAll(sel);
     els.forEach(function (el) {
-      if (!el.classList.contains('rv-section')) el.classList.add('rv-section');
+      if (!el.classList.contains('rv-section')) {
+        el.classList.add('rv-section');
+      }
     });
   });
 
+  /* 3. Marca a seção de depoimentos com rv-zoom (escala) */
   var depSection = document.getElementById('depoimentos');
   if (depSection) {
     depSection.classList.remove('rv-section');
     depSection.classList.add('rv-zoom');
   }
 
+  /* 4. IntersectionObserver — threshold baixo para disparar cedo */
   var ioOptions = { threshold: 0.06, rootMargin: '0px 0px -40px 0px' };
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('v');
-        io.unobserve(entry.target);
+        io.unobserve(entry.target); /* animação roda só uma vez */
       }
     });
   }, ioOptions);
 
+  /* 5. Observa todos os elementos elegíveis */
   var allReveal = document.querySelectorAll('.rv, .rv-section, .rv-left, .rv-right, .rv-zoom');
   allReveal.forEach(function (el) {
+    /* Elementos já no viewport ao carregar → anima imediatamente */
     if (el.getBoundingClientRect().top < window.innerHeight - 40) {
       el.classList.add('v');
     } else {
