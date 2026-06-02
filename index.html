@@ -67,7 +67,6 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;o
 /* ===== HERO IMAGE ===== */
 .hero-img-wrap{position:relative;width:100%;line-height:0;display:block;background:#0a0a0a;}
 .hero-img-wrap .hero-bg-img{width:100%;display:block;}
-.hero-img-wrap .btns-layer{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:screen;pointer-events:none;display:block;}
 .hero-hotspot{
   position:absolute;display:block;cursor:pointer;border-radius:50px;
   background:transparent;z-index:10;text-decoration:none;
@@ -83,353 +82,556 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;o
 }
 
 /* ===== CARROSSEL INFINITO ===== */
-.marquee-wrap{
-  width:100%;
-  overflow:hidden;
-  background:#000;
-  padding:0;
-  line-height:0;
-  clip-path: inset(0 0 25px 0);
-  transform: translateY(-190px);
-  margin-bottom: -215px;
-}
-.marquee-track{
-  display:flex;
-  align-items:center;
-  gap:0;
-  width:max-content;
-  animation:marquee 18s linear infinite;
-  font-size:0;
-}
-.marquee-track img{
-  display:block;
-  height:90px;
-  width:auto;
-  flex-shrink:0;
-  margin-right: -6px;
-  mix-blend-mode: lighten;
-  filter: brightness(1.15) contrast(1.15);
-}
-@keyframes marquee{
-  0%  {transform:translateX(0);}
-  100%{transform:translateX(-50%);}
-}
-.marquee-wrap:hover .marquee-track{
-  animation-play-state:paused;
-}
-
-/* PROOF BARS — removido */
+.marquee-wrap{width:100%;overflow:hidden;background:#000;padding:0;line-height:0;clip-path:inset(0 0 25px 0);transform:translateY(-190px);margin-bottom:-215px;}
+.marquee-track{display:flex;align-items:center;gap:0;width:max-content;animation:marquee 18s linear infinite;font-size:0;}
+.marquee-track img{display:block;height:90px;width:auto;flex-shrink:0;margin-right:-6px;mix-blend-mode:lighten;filter:brightness(1.15) contrast(1.15);}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.marquee-wrap:hover .marquee-track{animation-play-state:paused;}
 
 /* ===== DIAGNÓSTICO REAL ===== */
-.diag-section{
-  margin-bottom: -100px;
-}
-.diag-canvas {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1920 / 715;
-  overflow: hidden;
-}
-.diag-canvas img.layer {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-.layer-base   { z-index: 0; }
-.layer-laranja{ z-index: 1; }
-.layer-marrom { z-index: 2; }
-.layer-borda  { z-index: 3; }
-.layer-logo   { z-index: 4; mix-blend-mode: screen; }
-.layer-texto  { z-index: 5; }
-.layer-autor  { z-index: 6; }
-
-.layer-laranja.lego-in,
-.layer-marrom.lego-in,
-.layer-borda.lego-in,
-.layer-logo.lego-in,
-.layer-texto.lego-in,
-.layer-autor.lego-in {
-  transform: translate(0, -100px) scale(1) !important;
-}
-
-[data-lego] {
-  opacity: 0;
-  will-change: transform, opacity;
-}
-[data-lego="top"]    { transform: translateY(-40px); }
-[data-lego="bottom"] { transform: translateY( 40px); }
-[data-lego="left"]   { transform: translateX(-40px); }
-[data-lego="right"]  { transform: translateX( 40px); }
-[data-lego="zoom"]   { transform: scale(0.75); }
-[data-lego].lego-in {
-  opacity: 1;
-  transform: translate(0,0) scale(1);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
+.diag-section{margin-bottom:-100px;}
+.diag-canvas{position:relative;width:100%;aspect-ratio:1920/715;overflow:hidden;}
+.diag-canvas img.layer{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+.layer-base{z-index:0;}.layer-laranja{z-index:1;}.layer-marrom{z-index:2;}.layer-borda{z-index:3;}.layer-logo{z-index:4;mix-blend-mode:screen;}.layer-texto{z-index:5;}.layer-autor{z-index:6;}
+.layer-laranja.lego-in,.layer-marrom.lego-in,.layer-borda.lego-in,.layer-logo.lego-in,.layer-texto.lego-in,.layer-autor.lego-in{transform:translate(0,-100px) scale(1) !important;}
+[data-lego]{opacity:0;will-change:transform,opacity;}
+[data-lego="top"]{transform:translateY(-40px);}[data-lego="bottom"]{transform:translateY(40px);}[data-lego="left"]{transform:translateX(-40px);}[data-lego="right"]{transform:translateX(40px);}[data-lego="zoom"]{transform:scale(0.75);}
+[data-lego].lego-in{opacity:1;transform:translate(0,0) scale(1);transition:opacity 0.6s ease,transform 0.6s ease;}
 
 /* ===== TRANSFORMAÇÃO ===== */
-.transformation {
-  background: linear-gradient(180deg, #0D0A0D, #050305);
-  padding: 0;
-  margin-top: -2px;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-}
-.transformation-content{
-  width:100%;
-  max-width:1700px;
-  margin:auto;
-}
-.transformation img{
-  width:100%;
-  height:auto;
-  display:block;
-  object-fit:contain;
-}
-
-.section-divider {
-  display: block;
-  width: 100%;
-  margin: -43px 0;
-  position: relative;
-  z-index: 20;
-  line-height: 0;
-}
-.section-divider img {
-  width: 100%;
-  display: block;
-  mix-blend-mode: screen;
-}
+.transformation{background:linear-gradient(180deg,#0D0A0D,#050305);padding:0;margin-top:-2px;display:flex;justify-content:center;position:relative;z-index:2;}
+.transformation-content{width:100%;max-width:1700px;margin:auto;}
+.transformation img{width:100%;height:auto;display:block;object-fit:contain;}
+.section-divider{display:block;width:100%;margin:-43px 0;position:relative;z-index:20;line-height:0;}
+.section-divider img{width:100%;display:block;mix-blend-mode:screen;}
 
 /* ===== SEÇÃO DEPOIMENTOS ===== */
-.dep-section {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1920 / 3220;
-  overflow: hidden;
-  isolation: isolate;
-  display: block;
-  background: #0a0a0a;
-  background-position-y: -20px;
+.dep-section{position:relative;width:100%;aspect-ratio:1920/3220;overflow:hidden;isolation:isolate;display:block;background:#0a0a0a;}
+.dep-layer{position:absolute;inset:0;width:100%;height:100%;}
+img.dep-layer{object-fit:cover;object-position:top center;}
+#depBg{z-index:0;}#depParticles{z-index:1;pointer-events:none;}#depText{z-index:2;pointer-events:none;}#depCards{z-index:3;pointer-events:none;}#depComets{z-index:4;pointer-events:none;}
+#depAudioZone{
+  position:absolute;z-index:5;top:85.59%;left:28.33%;width:44.95%;height:3.76%;
+  background:transparent;border:none;cursor:pointer;border-radius:50px;outline:none;
+  transition:box-shadow .3s ease;
 }
-.dep-layer {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+#depAudioZone:hover{
+  box-shadow:0 0 8px 6px rgba(245,166,35,.70),0 0 24px 12px rgba(232,197,106,.45),0 0 55px 20px rgba(201,153,42,.25);
 }
-img.dep-layer {
-  object-fit: cover;
-  object-position: top center;
-}
-#depBg        { z-index: 0; }
-#depParticles { z-index: 1; pointer-events: none; }
-#depText      { z-index: 2; pointer-events: none; }
-#depCards     { z-index: 3; pointer-events: none; }
-#depComets    { z-index: 4; pointer-events: none; }
-#depAudioZone {
-  position: absolute;
-  z-index: 5;
-  top: 86.75%; left: 28.49%;
-  width: 44.64%; height: 3.42%;
-  top: 85.59%; left: 28.33%;
-  width: 44.95%; height: 3.76%;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  border-radius: 50px;
-  border-radius: 26px;
-  outline: none;
-  transition: box-shadow .3s ease;
-}
-#depAudioZone:hover {
-  box-shadow:
-    0 0 8px 6px  rgba(245,166,35,.70),
-    0 0 24px 12px rgba(232,197,106,.45),
-    0 0 55px 20px rgba(201,153,42,.25);
-}
-.gold-hotspot {
-  position: absolute;
-  display: block;
-  z-index: 10;
-  border-radius: 50px;
-  background: transparent;
-  cursor: pointer;
-  transition: box-shadow .3s ease;
-}
-#hsCompra {
-  top: 95.27%;
-  left: 36.65%;
-  width: 25.28%;
-  height: 3.19%;
-}
-.gold-hotspot:hover {
-  box-shadow:
-    0 0 8px 6px  rgba(245,166,35,.70),
-    0 0 24px 12px rgba(232,197,106,.45),
-    0 0 55px 20px rgba(201,153,42,.25);
+#depAudioZone.dep-playing{
+  box-shadow:0 0 8px 6px rgba(245,166,35,.80),0 0 24px 12px rgba(232,197,106,.55),0 0 55px 20px rgba(201,153,42,.35);
 }
 
-/* ===== FAQ PREMIUM ===== */
-.faq-section{
-  background: linear-gradient(180deg, #0A0A0A 0%, #0D080D 40%, #080508 100%);
-  padding: 100px 5vw 120px;
+/* ===== BOTÃO DE COMPRA ===== */
+.gold-hotspot{position:absolute;display:block;z-index:10;border-radius:50px;background:transparent;cursor:pointer;transition:box-shadow .3s ease;}
+#hsCompra{top:95.27%;left:36.65%;width:25.28%;height:3.19%;}
+.gold-hotspot:hover{
+  box-shadow:0 0 8px 6px rgba(245,166,35,.70),0 0 24px 12px rgba(232,197,106,.45),0 0 55px 20px rgba(201,153,42,.25);
+}
+
+/* ═══════════════════════════════════════════
+   FAQ — REDESIGN PREMIUM
+═══════════════════════════════════════════ */
+.faq-section {
+  background: linear-gradient(180deg, #080508 0%, #0A070A 50%, #060406 100%);
+  padding: 100px 5vw 110px;
   position: relative;
   overflow: hidden;
+  font-family: 'Poppins', sans-serif;
 }
-/* Glow de fundo */
-.faq-section::before{
-  content:'';
-  position:absolute;
-  top:-100px; left:50%; transform:translateX(-50%);
-  width:900px; height:500px;
-  border-radius:50%;
-  background:radial-gradient(ellipse,rgba(201,153,42,.07) 0%,transparent 65%);
-  pointer-events:none;
+
+/* Glow ambiente radial no topo */
+.faq-section::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: 50%;
+  transform: translateX(-50%);
+  width: 80vw; max-width: 1000px; height: 400px;
+  background: radial-gradient(ellipse at center,
+    rgba(201,153,42,.09) 0%,
+    rgba(201,153,42,.03) 40%,
+    transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
 }
+
 /* Linha dourada topo */
-.faq-section::after{
-  content:'';
-  position:absolute;
-  top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg,transparent,rgba(201,153,42,.25),transparent);
+.faq-section::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(201,153,42,.35) 40%, rgba(232,197,106,.5) 50%, rgba(201,153,42,.35) 60%, transparent 100%);
 }
-.faq-inner{
-  max-width:780px;
+
+.faq-inner {
+  max-width: 820px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
 }
-.faq-header{
-  text-align:center;
-  margin-bottom: 64px;
+
+/* Cabeçalho da seção FAQ */
+.faq-header {
+  text-align: center;
+  margin-bottom: 60px;
 }
-.faq-header-line{
-  display:inline-flex;
-  align-items:center;
-  gap:14px;
-  margin-bottom: 20px;
+
+.faq-eyebrow-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
 }
-.faq-header-line::before,
-.faq-header-line::after{
-  content:'';
-  width:40px; height:1px;
-  background:linear-gradient(90deg,transparent,rgba(201,153,42,.5));
+
+.faq-eyebrow-line {
+  width: 36px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,153,42,.6));
 }
-.faq-header-line::after{
-  background:linear-gradient(90deg,rgba(201,153,42,.5),transparent);
+.faq-eyebrow-line.right {
+  background: linear-gradient(90deg, rgba(201,153,42,.6), transparent);
 }
-.faq-header-eyebrow{
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:5px;
-  text-transform:uppercase;
-  color:var(--gold);
+
+.faq-eyebrow-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
 }
-.faq-header h2{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(28px,4.5vw,48px);
-  line-height:1.15;
-  color:#fff;
-  font-weight:700;
+
+.faq-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 14px;
 }
-.faq-header h2 em{
-  color:var(--gold2);
-  font-style:normal;
+
+.faq-title em {
+  color: var(--gold2);
+  font-style: normal;
 }
-.faq-stack{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
+
+.faq-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(136,130,120,.85);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.7;
 }
-.faq-item{
-  border-radius:6px;
-  overflow:hidden;
-  background: rgba(255,255,255,.018);
-  border: 1px solid rgba(201,153,42,.1);
-  transition: border-color .3s ease, background .3s ease;
+
+/* Stack de perguntas */
+.faq-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Item individual */
+.faq-item {
   position: relative;
+  border-radius: 8px;
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(201,153,42,.1);
+  overflow: hidden;
+  transition: border-color .35s ease, background .35s ease, box-shadow .35s ease;
 }
-.faq-item::before{
-  content:'';
-  position:absolute;
-  left:0; top:0; bottom:0;
-  width:3px;
-  background: linear-gradient(180deg,var(--gold),var(--gold2));
-  opacity:0;
-  transition: opacity .3s ease;
-  border-radius:0;
+
+/* Barra lateral dourada */
+.faq-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--gold), var(--gold2));
+  opacity: 0;
+  transition: opacity .35s ease;
 }
-.faq-item:hover{
+
+.faq-item:hover {
+  border-color: rgba(201,153,42,.25);
+  background: rgba(201,153,42,.025);
+  box-shadow: 0 4px 32px rgba(201,153,42,.06), inset 0 0 0 0 transparent;
+}
+.faq-item:hover::before { opacity: 1; }
+
+details.faq-item[open] {
   border-color: rgba(201,153,42,.28);
-  background: rgba(201,153,42,.03);
+  background: rgba(201,153,42,.035);
+  box-shadow: 0 8px 40px rgba(201,153,42,.08);
 }
-.faq-item:hover::before{ opacity:1; }
-details.faq-item[open]{
-  border-color: rgba(201,153,42,.3);
-  background: rgba(201,153,42,.04);
-}
-details.faq-item[open]::before{ opacity:1; }
-.faq-q{
-  padding: 26px 28px;
+details.faq-item[open]::before { opacity: 1; }
+
+/* Pergunta (summary) */
+.faq-q {
+  font-family: 'Poppins', sans-serif;
+  padding: 24px 28px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
   font-weight: 600;
-  font-size: 16px;
-  color: #E0D8D0;
+  font-size: 15px;
+  color: #D8D0C8;
   list-style: none;
-  line-height: 1.4;
+  line-height: 1.45;
   user-select: none;
+  letter-spacing: 0.01em;
 }
-.faq-q::marker,.faq-q::-webkit-details-marker{display:none;}
-.faq-icon{
-  width: 32px; height: 32px;
-  min-width: 32px;
+.faq-q::marker, .faq-q::-webkit-details-marker { display: none; }
+
+/* Ícone +/× animado */
+.faq-icon {
+  width: 30px; height: 30px;
+  min-width: 30px;
   border-radius: 50%;
-  background: rgba(201,153,42,.08);
-  border: 1px solid rgba(201,153,42,.25);
+  background: rgba(201,153,42,.07);
+  border: 1px solid rgba(201,153,42,.22);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform .35s cubic-bezier(.22,1,.36,1), background .3s ease;
+  transition: transform .4s cubic-bezier(.22,1,.36,1), background .3s ease, border-color .3s ease;
   position: relative;
+  flex-shrink: 0;
 }
-.faq-icon::before{
-  content:'';
-  position:absolute;
-  width:12px; height:1.5px;
-  background:var(--gold2);
-  border-radius:2px;
+
+.faq-icon::before {
+  content: '';
+  position: absolute;
+  width: 11px; height: 1.5px;
+  background: var(--gold2);
+  border-radius: 2px;
 }
-.faq-icon::after{
-  content:'';
-  position:absolute;
-  width:1.5px; height:12px;
-  background:var(--gold2);
-  border-radius:2px;
-  transition: transform .35s cubic-bezier(.22,1,.36,1), opacity .3s ease;
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  width: 1.5px; height: 11px;
+  background: var(--gold2);
+  border-radius: 2px;
+  transition: transform .4s cubic-bezier(.22,1,.36,1), opacity .3s ease;
 }
-details[open] .faq-icon{
-  background: rgba(201,153,42,.15);
+
+details[open] .faq-icon {
+  background: rgba(201,153,42,.14);
+  border-color: rgba(201,153,42,.4);
   transform: rotate(45deg);
 }
-details[open] .faq-icon::after{ opacity:0; }
-.faq-a{
-  padding: 0 28px 26px 28px;
-  color: #8A8280;
-  font-size: 15px;
-  line-height: 1.85;
-  border-top: 1px solid rgba(255,255,255,.05);
+details[open] .faq-icon::after { opacity: 0; }
+
+/* Resposta */
+.faq-a {
+  font-family: 'Poppins', sans-serif;
+  padding: 0 28px 24px 28px;
+  color: #7A7470;
+  font-size: 14px;
+  line-height: 1.9;
+  font-weight: 400;
+  border-top: 1px solid rgba(255,255,255,.04);
   padding-top: 16px;
+  letter-spacing: 0.01em;
+}
+
+/* Numeração discreta opcional */
+.faq-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: rgba(201,153,42,.35);
+  margin-right: 4px;
+  user-select: none;
+}
+
+/* Rodapé do FAQ — CTA sutil */
+.faq-footer {
+  margin-top: 48px;
+  text-align: center;
+  padding: 28px 32px;
+  border: 1px solid rgba(201,153,42,.1);
+  border-radius: 8px;
+  background: rgba(201,153,42,.025);
+  position: relative;
+  overflow: hidden;
+}
+.faq-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(201,153,42,.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.faq-footer p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: rgba(136,130,120,.8);
+  margin-bottom: 16px;
+  position: relative;
+}
+.faq-footer p strong {
+  color: var(--gold2);
+  font-weight: 600;
+}
+.faq-footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(90deg, #F5A623 0%, #E8C040 40%, #C9992A 70%, #8B5E0A 100%);
+  color: #111;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 30px;
+  border-radius: 50px;
+  box-shadow: 0 6px 24px rgba(201,153,42,.3);
+  transition: all .3s ease;
+  position: relative;
+}
+.faq-footer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(201,153,42,.45);
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER — REDESIGN PREMIUM
+═══════════════════════════════════════════ */
+.site-footer {
+  background: linear-gradient(180deg, #060406 0%, #040204 100%);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Linha dourada topo do footer */
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(201,153,42,.2) 30%, rgba(232,197,106,.4) 50%, rgba(201,153,42,.2) 70%, transparent 100%);
+}
+
+/* Glow ambiente */
+.site-footer::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 200px;
+  background: radial-gradient(ellipse, rgba(201,153,42,.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Bloco principal */
+.footer-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 72px 5vw 56px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 64px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Coluna da marca */
+.footer-brand {}
+
+.footer-logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--gold2);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+.footer-logo-sub {
+  font-family: 'Poppins', sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(201,153,42,.45);
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.footer-brand-divider {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  border-radius: 2px;
+  margin-bottom: 18px;
+}
+
+.footer-brand-desc {
+  font-size: 13px;
+  color: rgba(136,130,120,.7);
+  line-height: 1.8;
+  max-width: 280px;
+  font-weight: 400;
+}
+
+.footer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 8px 14px;
+  border: 1px solid rgba(201,153,42,.15);
+  border-radius: 50px;
+  background: rgba(201,153,42,.04);
+}
+
+.footer-badge-dot {
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(201,153,42,.8);
+  animation: pulse-dot 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 6px rgba(201,153,42,.7); }
+  50%       { box-shadow: 0 0 14px rgba(232,197,106,.9); }
+}
+
+.footer-badge-text {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: rgba(201,153,42,.8);
+  text-transform: uppercase;
+}
+
+/* Colunas de links */
+.footer-col {}
+
+.footer-col-title {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(201,153,42,.5);
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(201,153,42,.1);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link {
+  font-size: 13px;
+  color: rgba(120,114,110,.75);
+  text-decoration: none;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color .25s ease, gap .25s ease;
+}
+
+.footer-link::before {
+  content: '';
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: rgba(201,153,42,.3);
+  flex-shrink: 0;
+  transition: background .25s ease;
+}
+
+.footer-link:hover {
+  color: var(--gold2);
+  gap: 12px;
+}
+.footer-link:hover::before {
+  background: var(--gold);
+}
+
+/* Divisor entre main e bottom */
+.footer-divider {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 5vw;
+  position: relative;
+  z-index: 1;
+}
+.footer-divider-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.06) 30%, rgba(255,255,255,.06) 70%, transparent);
+}
+
+/* Rodapé inferior */
+.footer-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 5vw 36px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: rgba(60,56,60,.9);
+  font-weight: 400;
+}
+
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-legal-link {
+  font-size: 12px;
+  color: rgba(60,56,60,.9);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.footer-legal-link:hover { color: rgba(201,153,42,.6); }
+
+.footer-legal-sep {
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: rgba(60,56,60,.5);
+  flex-shrink: 0;
+}
+
+/* Aviso legal */
+.footer-disclaimer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 5vw 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-disclaimer p {
+  font-size: 11px;
+  color: rgba(40,36,40,.9);
+  line-height: 1.75;
+  font-weight: 400;
+  font-style: italic;
+  border-top: 1px solid rgba(255,255,255,.03);
+  padding-top: 20px;
 }
 
 /* ===== EXIT POPUP ===== */
@@ -441,41 +643,75 @@ details[open] .faq-icon::after{ opacity:0; }
 .exit-box h3{font-family:'Playfair Display',serif;font-size:30px;margin-bottom:12px;}
 .exit-box p{color:var(--muted);line-height:1.75;margin-bottom:28px;font-size:15px;}
 
-/* FOOTER */
-footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:center;font-size:12px;color:#333;}
 .divider-gold{width:60px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2));margin:0 auto 20px;border-radius:2px;}
-  
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .footer-main{grid-template-columns:1fr 1fr;gap:40px;}
+  .footer-brand{grid-column:1/-1;}
+}
+@media(max-width:768px){
+  .section{padding:56px 5vw;}.section-sm{padding:40px 5vw;}
+  .marquee-wrap{transform:translateY(0);margin-bottom:0;clip-path:none;}
+  .marquee-track img{height:55px;}
+  .diag-section{padding-top:0;}
+  .diag-canvas{aspect-ratio:3/4;}
+  .layer-laranja.lego-in,.layer-marrom.lego-in,.layer-borda.lego-in,.layer-texto.lego-in,.layer-autor.lego-in{transform:translate(0,-30px) scale(1) !important;}
+  .btn-xl{font-size:13px;}
+  .btn-xl .btn-text{padding:0 20px 0 24px;}
+  .btn-xl .btn-icon{width:48px;height:48px;min-width:48px;}
+  .cta-group{display:flex;flex-direction:column;align-items:center;gap:14px;}
+  .cta-group .btn{width:100%;justify-content:space-between;}
+  .faq-section{padding:72px 5vw 80px;}
+  .faq-q{font-size:14px;padding:20px 20px;}
+  .faq-a{padding:0 20px 20px;font-size:13px;}
+  .faq-footer{padding:22px 20px;}
+  .footer-main{grid-template-columns:1fr;gap:36px;padding:56px 5vw 40px;}
+  .footer-brand{grid-column:auto;}
+  .exit-box{padding:36px 20px;}
+  .exit-box h3{font-size:22px;}
+  .sh-timer{font-size:11px;}
+  #sh{padding:10px 4vw;}
+}
+@media(max-width:480px){
+  .diag-canvas{aspect-ratio:3/5;}
+  .marquee-wrap{transform:translateY(0);margin-bottom:0;}
+  .marquee-track img{height:48px;}
+  .layer-laranja.lego-in,.layer-marrom.lego-in,.layer-borda.lego-in,.layer-texto.lego-in,.layer-autor.lego-in{transform:translate(0,-10px) scale(1) !important;}
+  #hs1{left:4%;width:58%;height:7.5%;top:71%;}
+  #hs2{left:66%;width:30%;height:7.5%;top:71%;}
+  .stitle{font-size:clamp(26px,7vw,36px);}
+  .section{padding:64px 5vw;}
+  .cta-group .btn{width:100%;}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:10px;}
+  .footer-legal-links{gap:12px;}
+}
 </style>
 </head>
 <body>
 <div id="pb"></div>
 
-<!-- ═══════════════════════════════════
-          STICKY HEADER
-═══════════════════════════════════ -->
+<!-- STICKY HEADER -->
 <div id="sh">
   <div class="sh-inner">
     <div class="sh-timer">Oferta especial — encerra em <strong id="cd">15:00</strong></div>
-<a href="#hsCompra"
-   onclick="event.preventDefault();document.getElementById('hsCompra').scrollIntoView({behavior:'smooth'});"
-   style="display:inline-block;line-height:0;flex-shrink:0;transition:transform .25s ease,filter .25s ease;"
-   onmouseover="this.style.transform='translateY(-2px) scale(1.04)';this.style.filter='drop-shadow(0 6px 18px rgba(201,153,42,.55))'"
-   onmouseout="this.style.transform='none';this.style.filter='none'">
-      <img src="botãodeacesso.png" alt="Garantir Acesso" style="height:50px;width:280px;object-fit:contain;display:block;">
+    <a href="#hsCompra"
+       onclick="event.preventDefault();document.getElementById('hsCompra').scrollIntoView({behavior:'smooth'});"
+       style="display:inline-block;line-height:0;flex-shrink:0;transition:transform .25s ease,filter .25s ease;"
+       onmouseover="this.style.transform='translateY(-2px) scale(1.04)';this.style.filter='drop-shadow(0 6px 18px rgba(201,153,42,.55))'"
+       onmouseout="this.style.transform='none';this.style.filter='none'">
+      <img src="botãodeacesso.png" alt="Garantir Acesso" style="height:44px;width:220px;object-fit:contain;display:block;">
     </a>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════
-              HERO
-═══════════════════════════════════ -->
+<!-- HERO -->
 <section style="margin:0;padding:0;width:100%;display:block;overflow:hidden;background:#0a0a0a;">
   <div class="hero-img-wrap">
     <img class="hero-bg-img" src="Herodesktop.png" alt="Mente Inabalável Hero">
     <a id="hs1" class="hero-hotspot" href="https://pay.kiwify.com.br/V600BAY" target="_blank" title="Quero Transformar Minha Mente"></a>
     <a id="hs2" class="hero-hotspot" href="#oferta" title="Ver Módulos"></a>
   </div>
-
   <div class="marquee-wrap">
     <div class="marquee-track">
       <img src="Carrossel Vitalício Acesso + Atualizações.png" alt="">
@@ -486,24 +722,20 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
   </div>
 </section>
 
-<!-- ═══════════════════════════════════
-           DIAGNÓSTICO REAL
-═══════════════════════════════════ -->
+<!-- DIAGNÓSTICO -->
 <section class="diag-section" id="diagnostico">
   <div class="diag-canvas">
-    <img class="layer layer-base"    src="diagnfundo.png"    alt="">
+    <img class="layer layer-base"    src="diagnfundo.png" alt="">
     <img class="layer layer-laranja" src="baselaranja.png" alt="" data-lego="bottom">
-    <img class="layer layer-marrom"  src="basemarrom.png"  alt="" data-lego="bottom" data-lego-delay="100">
-    <img class="layer layer-borda"   src="bordadourada.png"   alt="" data-lego="bottom" data-lego-delay="150">
-    <img class="layer layer-logo"    src="logofundo.png"    alt="" data-lego="zoom"   data-lego-delay="200">
-    <img class="layer layer-texto"   src="textobranco.png"   alt="" data-lego="left"   data-lego-delay="250">
-    <img class="layer layer-autor"   src="textoautor.png"   alt="" data-lego="right"  data-lego-delay="300">
+    <img class="layer layer-marrom"  src="basemarrom.png" alt="" data-lego="bottom" data-lego-delay="100">
+    <img class="layer layer-borda"   src="bordadourada.png" alt="" data-lego="bottom" data-lego-delay="150">
+    <img class="layer layer-logo"    src="logofundo.png" alt="" data-lego="zoom" data-lego-delay="200">
+    <img class="layer layer-texto"   src="textobranco.png" alt="" data-lego="left" data-lego-delay="250">
+    <img class="layer layer-autor"   src="textoautor.png" alt="" data-lego="right" data-lego-delay="300">
   </div>
 </section>
 
-<!-- ═══════════════════════════════════
-           TRANSFORMATION
-═══════════════════════════════════ -->
+<!-- TRANSFORMATION -->
 <section class="transformation" id="transformacao">
   <div class="transformation-content">
     <img src="transformacao.png" alt="Transformação" style="display:block;">
@@ -514,38 +746,21 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
   <img src="divisor.png" alt="">
 </div>
 
-<!-- ═══════════════════════════════════
-            DEPOIMENTOS
-═══════════════════════════════════ -->
+<!-- DEPOIMENTOS -->
 <section class="dep-section" id="depoimentos">
-  <!-- Fundo -->
-  <img id="depBg" class="dep-layer" src="depoimentosessao.png" alt="" aria-hidden="true">
-
-  <!-- Partículas douradas (z-index 1) -->
+  <img id="depBg"    class="dep-layer" src="depoimentosessao.png" alt="" aria-hidden="true">
   <canvas id="depParticles" class="dep-layer"></canvas>
-
-  <!-- Textos (z-index 2) -->
-  <img id="depText" class="dep-layer" src="dep-textos.png" alt="" aria-hidden="true">
-
-  <!-- Cards de depoimentos (z-index 3) -->
+  <img id="depText"  class="dep-layer" src="dep-textos.png" alt="" aria-hidden="true">
   <img id="depCards" class="dep-layer" src="dep-cards.png" alt="" aria-hidden="true">
-
-  <!-- ✨ Canvas de cometas orbitando os cards (z-index 4) -->
   <canvas id="depComets" class="dep-layer"></canvas>
-
-  <!-- Zona clicável sobre o botão de áudio (z-index 5) -->
   <button id="depAudioZone" aria-label="Ouvir depoimento dos alunos"></button>
-
   <audio id="depAudio" preload="none"
     src="https://res.cloudinary.com/deax6es7v/video/upload/v1762576601/depoimento-mente-inabalavel.mp3_twwfpm.mp3">
   </audio>
 </section>
 
-<!-- ═══════════════════════════════════
-         MÓDULOS + OFERTA (UNIFICADO)
-═══════════════════════════════════ -->
-<section style="margin:0;padding:0;width:100%;display:block;overflow:hidden;background:
-#0a0a0a;margin-top:-9px;position:relative;z-index:10;" id="oferta">
+<!-- MÓDULOS + OFERTA -->
+<section style="margin:0;padding:0;width:100%;display:block;overflow:hidden;background:#0a0a0a;margin-top:-9px;position:relative;z-index:10;" id="oferta">
   <div style="position:relative;width:100%;line-height:0;">
     <img src="modulos-oferta.png" alt="Módulos e Oferta" style="width:100%;display:block;">
     <a href="https://pay.kiwify.com.br/ltnQQJI" target="_blank"
@@ -553,126 +768,172 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
       class="gold-hotspot"
     ></a>
   </div>
-</section> 
-  
-<!-- ═══════════════════════════════════
-         GARANTIA + FAQ
-═══════════════════════════════════ -->
-<section style="margin:0;padding:0;width:100%;display:block;background:#0A0A0A;position:relative;" id="garantia">
+</section>
 
-  <!-- IMAGEM GARANTIA — apenas a parte superior (corta na área branca) -->
+<!-- GARANTIA -->
+<section style="margin:0;padding:0;width:100%;display:block;background:#0A0A0A;position:relative;" id="garantia">
   <div style="position:relative;width:100%;line-height:0;">
     <img src="garantia.png" alt="Garantia 7 Dias" style="width:100%;display:block;">
   </div>
+</section>
 
-  <!-- FAQ NO FLUXO NORMAL — empurra o footer para baixo -->
-  <div style="background:#0A0A0A;padding:48px 5vw 72px;">
-    <div style="width:100%;max-width:860px;margin:0 auto;">
+<!-- ═══════════════════════════════════
+     FAQ — NOVO DESIGN
+═══════════════════════════════════ -->
+<section class="faq-section" id="faq">
+  <div class="faq-inner">
 
-      <div style="text-align:center;margin-bottom:36px;">
-        <span class="eyebrow rv">Dúvidas Frequentes</span>
-        <div class="divider-gold rv"></div>
-        <h2 class="stitle rv">Tudo que você precisa saber<br>antes de decidir</h2>
+    <!-- Cabeçalho -->
+    <div class="faq-header rv">
+      <div class="faq-eyebrow-wrap">
+        <span class="faq-eyebrow-line"></span>
+        <span class="faq-eyebrow-text">Dúvidas Frequentes</span>
+        <span class="faq-eyebrow-line right"></span>
       </div>
+      <h2 class="faq-title">Tudo que você precisa saber<br><em>antes de decidir</em></h2>
+      <p class="faq-subtitle">Respondemos as principais perguntas para que você tome sua decisão com total clareza.</p>
+    </div>
 
-      <div style="display:flex;flex-direction:column;gap:2px;">
+    <!-- Perguntas -->
+    <div class="faq-stack">
 
-        <details class="faq-item rv">
-          <summary class="faq-q">Como recebo meu acesso ao programa?<span class="faq-chevron">▾</span></summary>
-          <div class="faq-a">Imediatamente após a confirmação do pagamento, você recebe um e-mail com seus dados de acesso à área de membros. É automático — você não precisa esperar nada.</div>
-        </details>
+      <details class="faq-item rv">
+        <summary class="faq-q">
+          <span><span class="faq-num"> —</span> Como recebo meu acesso ao programa?</span>
+          <span class="faq-icon"></span>
+        </summary>
+        <div class="faq-a">Imediatamente após a confirmação do pagamento, você recebe um e-mail com seus dados de acesso à área de membros. É automático — você não precisa esperar nada.</div>
+      </details>
 
-        <details class="faq-item rv d1">
-          <summary class="faq-q">Por quanto tempo tenho acesso ao conteúdo?<span class="faq-chevron">▾</span></summary>
-          <div class="faq-a">O acesso é vitalício. Todas as futuras atualizações e novos conteúdos que forem adicionados ao programa estão inclusos sem custo adicional.</div>
-        </details>
+      <details class="faq-item rv d1">
+        <summary class="faq-q">
+          <span><span class="faq-num"> —</span> Por quanto tempo tenho acesso ao conteúdo?</span>
+          <span class="faq-icon"></span>
+        </summary>
+        <div class="faq-a">O acesso é vitalício. Todas as futuras atualizações e novos conteúdos que forem adicionados ao programa estão inclusos sem custo adicional.</div>
+      </details>
 
-        <details class="faq-item rv d2">
-          <summary class="faq-q">Este programa serve para iniciantes?<span class="faq-chevron">▾</span></summary>
-          <div class="faq-a">Sim. O conteúdo foi estruturado para qualquer nível. O método parte da sua realidade atual e constrói a partir daí.</div>
-        </details>
+      <details class="faq-item rv d2">
+        <summary class="faq-q">
+          <span><span class="faq-num"> —</span> Este programa serve para iniciantes?</span>
+          <span class="faq-icon"></span>
+        </summary>
+        <div class="faq-a">Sim. O conteúdo foi estruturado para qualquer nível. O método parte da sua realidade atual e constrói a partir daí.</div>
+      </details>
 
-        <details class="faq-item rv">
-          <summary class="faq-q">Quanto tempo preciso dedicar por dia?<span class="faq-chevron">▾</span></summary>
-          <div class="faq-a">Com 20 a 30 minutos diários você já consegue progredir de forma consistente. A ideia é encaixar na rotina, não substituir ela.</div>
-        </details>
+      <details class="faq-item rv">
+        <summary class="faq-q">
+          <span><span class="faq-num"> —</span> Quanto tempo preciso dedicar por dia?</span>
+          <span class="faq-icon"></span>
+        </summary>
+        <div class="faq-a">Com 20 a 30 minutos diários você já consegue progredir de forma consistente. A ideia é encaixar na rotina, não substituir ela.</div>
+      </details>
 
-        <details class="faq-item rv d1">
-          <summary class="faq-q">A garantia funciona de verdade?<span class="faq-chevron">▾</span></summary>
-          <div class="faq-a">Sim, sem letras miúdas. Se dentro de 7 dias você não estiver satisfeito por qualquer motivo, basta enviar um e-mail e fazemos o reembolso integral. O risco é 100% nosso.</div>
-        </details>
+      <details class="faq-item rv d1">
+        <summary class="faq-q">
+          <span><span class="faq-num"> —</span> A garantia funciona de verdade?</span>
+          <span class="faq-icon"></span>
+        </summary>
+        <div class="faq-a">Sim, sem letras miúdas. Se dentro de 7 dias você não estiver satisfeito por qualquer motivo, basta enviar um e-mail e fazemos o reembolso integral. O risco é 100% nosso.</div>
+      </details>
 
-        <details class="faq-item rv d2">
-          <summary class="faq-q">O programa é em PDF ou tem vídeos?<span class="faq-chevron">▾</span></summary>
-          <div class="faq-a">O programa atual é em formato ebook (PDF), com conteúdo estruturado e aplicável. Vídeos e áudios estão previstos para futuras atualizações gratuitas para alunos.</div>
-        </details>
+      <details class="faq-item rv d2">
+        <summary class="faq-q">
+          <span><span class="faq-num"> —</span> O programa é em PDF ou tem vídeos?</span>
+          <span class="faq-icon"></span>
+        </summary>
+        <div class="faq-a">O programa atual é em formato ebook (PDF), com conteúdo estruturado e aplicável. Vídeos e áudios estão previstos para futuras atualizações gratuitas para alunos.</div>
+      </details>
 
+    </div>
+
+    <!-- CTA no rodapé do FAQ -->
+    <div class="faq-footer rv">
+      <p>Ainda tem dúvidas? <strong>Fale conosco</strong> ou acesse agora com garantia total.</p>
+      <a href="https://pay.kiwify.com.br/ltnQQJI" target="_blank" class="faq-footer-btn">
+         GARANTIR ACESSO AGORA
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     FOOTER — NOVO DESIGN
+═══════════════════════════════════ -->
+<footer class="site-footer">
+
+  <div class="footer-main">
+
+    <!-- Marca -->
+    <div class="footer-brand">
+      <div class="footer-logo-text">Mente Inabalável</div>
+      <span class="footer-logo-sub">Reprogramação Mental de Alta Performance</span>
+      <div class="footer-brand-divider"></div>
+      <p class="footer-brand-desc">Método estruturado para quem quer resultados reais de forma consistente — não motivação temporária.</p>
+      <div class="footer-badge">
+        <span class="footer-badge-dot"></span>
+        <span class="footer-badge-text">Acesso vitalício garantido</span>
       </div>
+    </div>
+
+    <!-- Navegação -->
+    <div class="footer-col">
+      <p class="footer-col-title">Programa</p>
+      <div class="footer-links">
+        <a href="#diagnostico" class="footer-link">O Diagnóstico</a>
+        <a href="#transformacao" class="footer-link">A Transformação</a>
+        <a href="#depoimentos" class="footer-link">Depoimentos</a>
+        <a href="#oferta" class="footer-link">Módulos e Oferta</a>
+        <a href="#garantia" class="footer-link">Garantia</a>
+        <a href="#faq" class="footer-link">Perguntas Frequentes</a>
+      </div>
+    </div>
+
+    <!-- Legal e contato -->
+    <div class="footer-col">
+      <p class="footer-col-title">Suporte & Legal</p>
+      <div class="footer-links">
+        <a href="mailto:suamentalidadealfa@gmail.com" class="footer-link">Contato por e-mail</a>
+        <a href="politica-de-privacidade.html" class="footer-link">Política de Privacidade</a>
+        <a href="termos-de-uso.html" class="footer-link">Termos de Uso</a>
+        <a href="https://kiwify.com.br" target="_blank" class="footer-link">Vendido via Kiwify</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Divisor -->
+  <div class="footer-divider">
+    <div class="footer-divider-line"></div>
+  </div>
+
+  <!-- Rodapé inferior -->
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Mente Inabalável. Todos os direitos reservados.</p>
+    <div class="footer-legal-links">
+      <a href="politica-de-privacidade.html" class="footer-legal-link">Privacidade</a>
+      <span class="footer-legal-sep"></span>
+      <a href="termos-de-uso.html" class="footer-legal-link">Termos</a>
+      <span class="footer-legal-sep"></span>
+      <a href="mailto:suamentalidadealfa@gmail.com" class="footer-legal-link">suamentalidadealfa@gmail.com</a>
     </div>
   </div>
 
-</section>
+  <!-- Aviso legal -->
+  <div class="footer-disclaimer">
+    <p>Este produto consiste em um material digital informativo (ebook). Nenhum material, treinamento ou método é capaz de gerar resultados por si só. Os resultados dependem diretamente do nível de comprometimento, dedicação e aplicação prática do conteúdo por parte do comprador. Os exemplos e depoimentos refletem experiências individuais e não constituem promessa ou garantia de resultados futuros.</p>
+  </div>
 
-  <!-- ═══════════════════════════════════
-              FOOTER
-═══════════════════════════════════ -->
-<footer style="background:#050305;border-top:1px solid rgba(255,255,255,.05);padding:52px 5vw 36px;">
-  <div style="max-width:1000px;margin:auto;">
+</footer>
 
-    <!-- Topo do footer -->
-    <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:32px;margin-bottom:40px;">
-
-      <!-- Marca -->
-      <div style="flex:1;min-width:220px;">
-        <div style="font-family:'Playfair Display',serif;font-size:22px;color:var(--gold2);margin-bottom:10px;">Mente Inabalável</div>
-        <p style="font-size:13px;color:#3A363A;line-height:1.7;max-width:280px;">Reprogramação mental de alta performance para quem quer resultados reais.</p>
-      </div>
-
-      <!-- Links -->
-      <div style="display:flex;gap:48px;flex-wrap:wrap;">
-        <div>
-          <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#444;font-weight:700;margin-bottom:14px;">Produto</p>
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <a href="#diagnostico" style="font-size:13px;color:#555;text-decoration:none;transition:.2s;" onmouseover="this.style.color='#C9992A'" onmouseout="this.style.color='#555'">O Programa</a>
-            <a href="#depoimentos" style="font-size:13px;color:#555;text-decoration:none;transition:.2s;" onmouseover="this.style.color='#C9992A'" onmouseout="this.style.color='#555'">Depoimentos</a>
-            <a href="#oferta" style="font-size:13px;color:#555;text-decoration:none;transition:.2s;" onmouseover="this.style.color='#C9992A'" onmouseout="this.style.color='#555'">Oferta</a>
-            <a href="#garantia" style="font-size:13px;color:#555;text-decoration:none;transition:.2s;" onmouseover="this.style.color='#C9992A'" onmouseout="this.style.color='#555'">Garantia</a>
-          </div>
-        </div>
-        <div>
-          <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#444;font-weight:700;margin-bottom:14px;">Legal</p>
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <a href="politica-de-privacidade.html" style="font-size:13px;color:#555;text-decoration:none;transition:.2s;" onmouseover="this.style.color='#C9992A'" onmouseout="this.style.color='#555'">Política de Privacidade</a>
-            <a href="termos-de-uso.html" style="font-size:13px;color:#555;text-decoration:none;transition:.2s;" onmouseover="this.style.color='#C9992A'" onmouseout="this.style.color='#555'">Termos de Uso</a>
-            <a href="mailto:suamentalidadealfa@gmail.com" style="font-size:13px;color:#555;text-decoration:none;transition:.2s;" onmouseover="this.style.color='#C9992A'" onmouseout="this.style.color='#555'">Contato</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Divisor -->
-    <div style="border-top:1px solid rgba(255,255,255,.04);padding-top:28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;">
-      <p style="font-size:12px;color:#2E2C2E;">© 2025 Mente Inabalável. Todos os direitos reservados.</p>
-      <p style="font-size:12px;color:#2E2C2E;">
-        Vendido por <a href="https://kiwify.com.br" target="_blank" style="color:#3A383A;text-decoration:none;">Kiwify</a> · 
-        <a href="mailto:suamentalidadealfa@gmail.com" style="color:#3A383A;text-decoration:none;">suamentalidadealfa@gmail.com</a>
-      </p>
-    </div>
-
-<!-- Aviso legal -->
-<p style="font-size:11px;color:#222;line-height:1.7;margin-top:20px;max-width:800px;">
-  Este produto consiste em um material digital informativo (ebook). Ele fornece estratégias, conhecimentos e orientações práticas que podem contribuir para a obtenção de resultados, desde que sejam corretamente aplicados. Nenhum material, treinamento ou método é capaz de gerar resultados por si só. Os resultados dependem diretamente do nível de comprometimento, dedicação, disciplina, capacidade de execução e aplicação prática do conteúdo por parte do comprador. Os exemplos, depoimentos e estudos de caso eventualmente apresentados refletem experiências individuais e não constituem promessa, garantia ou previsão de resultados futuros. Cada pessoa obtém resultados diferentes de acordo com sua realidade, esforço e implementação das estratégias apresentadas. Ao adquirir este material, o comprador reconhece que é o único responsável pela forma como utilizará as informações fornecidas e pelas decisões tomadas a partir delas.
-</p
-  
-<!-- ═══════════════════════════════════
-              EXIT POPUP
-═══════════════════════════════════ -->
+<!-- EXIT POPUP -->
 <div id="exitPopup">
   <div class="exit-box">
     <button class="exit-close" onclick="closePopup()">✕</button>
     <div style="display:inline-block;background:rgba(224,48,48,.12);border:1px solid rgba(224,48,48,.4);color:#E03030;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:5px 14px;border-radius:2px;margin-bottom:20px;">⚠ Oferta expirando agora</div>
     <h3 style="font-size:26px;margin-bottom:10px;">Espera — essa oferta<br><em style="color:var(--gold2);font-style:normal;">não vai aparecer de novo.</em></h3>
-    <p style="font-size:15px;line-height:1.75;color:#999;margin-bottom:10px;">Essa é uma condição <strong style="color:#fff;">exclusiva e única</strong> que está disponível <strong style="color:#fff;">somente agora</strong>, neste exato momento. Se você fechar essa janela, ela desaparece para sempre.</p>
+    <p style="font-size:15px;line-height:1.75;color:#999;margin-bottom:10px;">Essa é uma condição <strong style="color:#fff;">exclusiva e única</strong> que está disponível <strong style="color:#fff;">somente agora</strong>, neste exato momento.</p>
     <div style="background:rgba(201,153,42,.06);border:1px solid rgba(201,153,42,.2);border-radius:4px;padding:16px 20px;margin-bottom:20px;text-align:left;">
       <p style="font-size:12px;color:var(--muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:2px;font-weight:600;">Oferta especial — acesso imediato</p>
       <div style="display:flex;align-items:baseline;gap:10px;margin-top:4px;">
@@ -708,296 +969,168 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
   pieces.forEach(function(el) { observer.observe(el); });
 })();
 
-/* ===== DEPOIMENTOS: PARTÍCULAS ===== */
+/* ===== PARTÍCULAS ===== */
 (function(){
   var canvas  = document.getElementById('depParticles');
   if(!canvas) return;
   var section = document.getElementById('depoimentos');
   var ctx     = canvas.getContext('2d');
   var W, H, pool = [];
-  function resize(){
-    W = canvas.width  = section.offsetWidth;
-    H = canvas.height = section.offsetHeight;
-  }
+  function resize(){ W = canvas.width = section.offsetWidth; H = canvas.height = section.offsetHeight; }
   function newP(sy){
-    return {
-      x: Math.random() * W, y: sy !== undefined ? sy : H + 4,
-      size: 0.5 + Math.random() * 2.0, speed: 0.18 + Math.random() * 0.55,
-      drift: (Math.random() - 0.5) * 0.28, hue: 38 + Math.random() * 16,
-      sat: 70 + Math.random() * 30, lit: 55 + Math.random() * 30,
-      phase: Math.random() * Math.PI, age: 0, life: 240 + Math.random() * 200
-    };
+    return { x:Math.random()*W, y:sy!==undefined?sy:H+4,
+      size:.5+Math.random()*2, speed:.18+Math.random()*.55,
+      drift:(Math.random()-.5)*.28, hue:38+Math.random()*16,
+      sat:70+Math.random()*30, lit:55+Math.random()*30,
+      phase:Math.random()*Math.PI, age:0, life:240+Math.random()*200 };
   }
-  function init(){
-    pool = [];
-    for(var i = 0; i < 90; i++){
-      var p = newP(Math.random() * H);
-      p.age = Math.random() * p.life;
-      pool.push(p);
-    }
-  }
+  function init(){ pool=[]; for(var i=0;i<90;i++){var p=newP(Math.random()*H);p.age=Math.random()*p.life;pool.push(p);} }
   function draw(){
-    ctx.clearRect(0, 0, W, H);
-    while(pool.length < 90) pool.push(newP());
-    for(var i = pool.length - 1; i >= 0; i--){
-      var p = pool[i];
-      p.age++; p.y -= p.speed; p.x += p.drift;
-      if(p.age > p.life || p.y < -6){ pool.splice(i,1); pool.push(newP()); continue; }
-      var t = p.age / p.life;
-      var fade = t < 0.15 ? t/0.15 : t > 0.75 ? (1-t)/0.25 : 1;
-      var alpha = fade * (0.5 + 0.28 * Math.sin(p.phase + p.age * 0.04));
-      ctx.save();
-      ctx.globalAlpha = Math.max(0, alpha);
-      ctx.shadowBlur  = p.size * 8;
-      ctx.shadowColor = 'hsl('+p.hue+','+p.sat+'%,'+p.lit+'%)';
-      ctx.fillStyle   = 'hsl('+p.hue+','+p.sat+'%,'+p.lit+'%)';
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI*2); ctx.fill();
-      ctx.restore();
+    ctx.clearRect(0,0,W,H);
+    while(pool.length<90) pool.push(newP());
+    for(var i=pool.length-1;i>=0;i--){
+      var p=pool[i]; p.age++; p.y-=p.speed; p.x+=p.drift;
+      if(p.age>p.life||p.y<-6){pool.splice(i,1);pool.push(newP());continue;}
+      var t=p.age/p.life;
+      var fade=t<.15?t/.15:t>.75?(1-t)/.25:1;
+      var alpha=fade*(.5+.28*Math.sin(p.phase+p.age*.04));
+      ctx.save(); ctx.globalAlpha=Math.max(0,alpha);
+      ctx.shadowBlur=p.size*8; ctx.shadowColor='hsl('+p.hue+','+p.sat+'%,'+p.lit+'%)';
+      ctx.fillStyle='hsl('+p.hue+','+p.sat+'%,'+p.lit+'%)';
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.size,0,Math.PI*2); ctx.fill(); ctx.restore();
     }
     requestAnimationFrame(draw);
   }
-  window.addEventListener('resize', function(){ resize(); init(); });
+  window.addEventListener('resize',function(){resize();init();});
   resize(); init(); draw();
 })();
 
-/* ===== DEPOIMENTOS: COMETAS ORBITANDO OS CARDS ===== */
+/* ===== COMETAS ===== */
 (function(){
   var section = document.getElementById('depoimentos');
   var canvas  = document.getElementById('depComets');
-  if(!section || !canvas) return;
+  if(!section||!canvas) return;
   var ctx = canvas.getContext('2d');
   var W, H;
-
-  /*
-   * Zonas dos cards em % do tamanho da seção (aspect-ratio 1920/3220).
-   * Valores medidos pixel a pixel diretamente do arquivo dep-cards.png (1920x3220).
-   * TL/TR: cards do topo  — BL/BR: cards do rodapé
-   */
   var ZONES = [
-    { top: 0.2139, left: 0.1456, w: 0.3451, h: 0.2067 }, /* TL */
-    { top: 0.2130, left: 0.5607, w: 0.2840, h: 0.1685 }, /* TR */
-    { top: 0.4588, left: 0.1456, w: 0.3218, h: 0.2067 }, /* BL */
-    { top: 0.4119, left: 0.5345, w: 0.3102, h: 0.2536 }, /* BR */
+    {top:.2139,left:.1456,w:.3451,h:.2067},
+    {top:.2130,left:.5607,w:.2840,h:.1685},
+    {top:.4588,left:.1456,w:.3218,h:.2067},
+    {top:.4119,left:.5345,w:.3102,h:.2536},
   ];
-
-  /* Um cometa por card, com offset de fase para não ficarem sincronizados */
-  var comets = ZONES.map(function(z, i){
-    return {
-      zone  : z,
-      t     : i * 0.25,   /* fase inicial escalonada (0..1) */
-      speed : 0.0010 + i * 0.00015  /* velocidades ligeiramente diferentes */
-    };
-  });
-
-  var TAIL_FRAC = 0.28; /* comprimento da cauda como fração do perímetro */
-  var SEGMENTS  = 80;   /* suavidade da cauda */
-
-  function resize(){
-    W = canvas.width  = section.offsetWidth;
-    H = canvas.height = section.offsetHeight;
+  var comets = ZONES.map(function(z,i){ return {zone:z, t:i*.25, speed:.0010+i*.00015}; });
+  var TAIL_FRAC=.28, SEGMENTS=80;
+  function resize(){ W=canvas.width=section.offsetWidth; H=canvas.height=section.offsetHeight; }
+  function ptOnRect(z,t){
+    t=((t%1)+1)%1;
+    var x=z.left*W, y=z.top*H, w=z.w*W, h=z.h*H, P=2*(w+h), d=t*P;
+    if(d<w) return{x:x+d,y:y}; d-=w;
+    if(d<h) return{x:x+w,y:y+d}; d-=h;
+    if(d<w) return{x:x+w-d,y:y+h}; d-=w;
+    return{x:x,y:y+h-d};
   }
-
-  /*
-   * Retorna {x,y} de um ponto na borda do retângulo descrito por 'z',
-   * onde t=0..1 percorre o perímetro no sentido horário a partir do
-   * canto superior-esquerdo.
-   */
-  function ptOnRect(z, t){
-    t = ((t % 1) + 1) % 1;
-    var x = z.left * W,
-        y = z.top  * H,
-        w = z.w    * W,
-        h = z.h    * H;
-    var P = 2 * (w + h);
-    var d = t * P;
-
-    if (d < w)       return { x: x + d,     y: y       }; /* topo  → */
-    d -= w;
-    if (d < h)       return { x: x + w,     y: y + d   }; /* direita ↓ */
-    d -= h;
-    if (d < w)       return { x: x + w - d, y: y + h   }; /* base  ← */
-    d -= w;
-                     return { x: x,         y: y + h - d }; /* esquerda ↑ */
-  }
-
   function drawComet(comet){
-    /* Atualiza posição */
-    comet.t = (comet.t + comet.speed) % 1;
-
-    /* luz lisa: tracos continuos com fade — zero bolinhas */
-    /* camadas de glow: mais larga+suave fora, mais fina+brilhante dentro */
-    var layers = [
-      { lw: 9,  alpha: 0.07 },
-      { lw: 5,  alpha: 0.13 },
-      { lw: 2,  alpha: 0.30 },
-      { lw: 1,  alpha: 0.70 }
-    ];
-    for (var li = 0; li < layers.length; li++){
-      var lay = layers[li];
-      for (var i = 0; i < SEGMENTS; i++){
-        var a  = i / SEGMENTS;
-        var a1 = (i + 1) / SEGMENTS;
-        var p0 = ptOnRect(comet.zone, comet.t - a  * TAIL_FRAC);
-        var p1 = ptOnRect(comet.zone, comet.t - a1 * TAIL_FRAC);
-        var fade = Math.pow(1 - a, 2.0);
-        ctx.save();
-        ctx.globalCompositeOperation = 'lighter';
-        ctx.globalAlpha = fade * lay.alpha;
-        ctx.strokeStyle = 'rgba(255,225,120,1)';
-        ctx.lineWidth   = lay.lw;
-        ctx.lineCap     = 'round';
-        ctx.lineJoin    = 'round';
-        ctx.beginPath();
-        ctx.moveTo(p0.x, p0.y);
-        ctx.lineTo(p1.x, p1.y);
-        ctx.stroke();
-        ctx.restore();
+    comet.t=(comet.t+comet.speed)%1;
+    var layers=[{lw:9,alpha:.07},{lw:5,alpha:.13},{lw:2,alpha:.30},{lw:1,alpha:.70}];
+    for(var li=0;li<layers.length;li++){
+      var lay=layers[li];
+      for(var i=0;i<SEGMENTS;i++){
+        var a=i/SEGMENTS, a1=(i+1)/SEGMENTS;
+        var p0=ptOnRect(comet.zone,comet.t-a*TAIL_FRAC);
+        var p1=ptOnRect(comet.zone,comet.t-a1*TAIL_FRAC);
+        var fade=Math.pow(1-a,2);
+        ctx.save(); ctx.globalCompositeOperation='lighter'; ctx.globalAlpha=fade*lay.alpha;
+        ctx.strokeStyle='rgba(255,225,120,1)'; ctx.lineWidth=lay.lw;
+        ctx.lineCap='round'; ctx.lineJoin='round';
+        ctx.beginPath(); ctx.moveTo(p0.x,p0.y); ctx.lineTo(p1.x,p1.y); ctx.stroke(); ctx.restore();
       }
     }
   }
-
-  function loop(){
-    ctx.clearRect(0, 0, W, H);
-    comets.forEach(drawComet);
-    requestAnimationFrame(loop);
-  }
-
-  window.addEventListener('resize', function(){ resize(); });
-  resize();
-  loop();
+  function loop(){ ctx.clearRect(0,0,W,H); comets.forEach(drawComet); requestAnimationFrame(loop); }
+  window.addEventListener('resize',function(){resize();});
+  resize(); loop();
 })();
 
-/* ===== DEPOIMENTOS: ÁUDIO ===== */
+/* ===== ÁUDIO ===== */
 (function(){
-  var zone  = document.getElementById('depAudioZone');
-  var audio = document.getElementById('depAudio');
-  if(!zone || !audio) return;
-  zone.addEventListener('click', function(){
-    audio.paused ? audio.play().catch(function(){}) : audio.pause();
-  });
-  audio.addEventListener('play',  function(){ zone.classList.add('dep-playing'); });
-  audio.addEventListener('pause', function(){ zone.classList.remove('dep-playing'); });
-  audio.addEventListener('ended', function(){ zone.classList.remove('dep-playing'); });
+  var zone = document.getElementById('depAudioZone');
+  var audio= document.getElementById('depAudio');
+  if(!zone||!audio) return;
+  zone.addEventListener('click',function(){ audio.paused?audio.play().catch(function(){}):audio.pause(); });
+  audio.addEventListener('play',function(){zone.classList.add('dep-playing');});
+  audio.addEventListener('pause',function(){zone.classList.remove('dep-playing');});
+  audio.addEventListener('ended',function(){zone.classList.remove('dep-playing');});
 })();
 
-/* ===== PROGRESS BAR + STICKY HEADER ===== */
-const pb = document.getElementById('pb');
-const sh = document.getElementById('sh');
-window.addEventListener('scroll', () => {
-  const el = document.documentElement;
-  pb.style.width = (el.scrollTop / (el.scrollHeight - el.clientHeight) * 100) + '%';
-  sh.classList.toggle('show', window.scrollY > 420);
-}, {passive: true});
+/* ===== PROGRESS BAR + STICKY ===== */
+const pb=document.getElementById('pb');
+const sh=document.getElementById('sh');
+window.addEventListener('scroll',()=>{
+  const el=document.documentElement;
+  pb.style.width=(el.scrollTop/(el.scrollHeight-el.clientHeight)*100)+'%';
+  sh.classList.toggle('show',window.scrollY>420);
+},{passive:true});
 
-/* ===== SCROLL REVEAL PROFISSIONAL ===== */
-(function () {
-  /* 1. Estilo base para os elementos .rv e .rv-section */
-  var style = document.createElement('style');
-  style.textContent = [
+/* ===== SCROLL REVEAL ===== */
+(function(){
+  var style=document.createElement('style');
+  style.textContent=[
     '.rv{opacity:0;transform:translateY(36px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}',
     '.rv.v{opacity:1;transform:none;}',
     '.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}',
-
-    /* Seções inteiras: fade in + sobe 48px */
     '.rv-section{opacity:0;transform:translateY(48px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);}',
     '.rv-section.v{opacity:1;transform:none;}',
-
-    /* Variantes de direção para seções */
-    '.rv-left{opacity:0;transform:translateX(-52px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1);}',
-    '.rv-left.v{opacity:1;transform:none;}',
-    '.rv-right{opacity:0;transform:translateX(52px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1);}',
-    '.rv-right.v{opacity:1;transform:none;}',
     '.rv-zoom{opacity:0;transform:scale(.94);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1);}',
     '.rv-zoom.v{opacity:1;transform:none;}'
   ].join('');
   document.head.appendChild(style);
 
-  /* 2. Marca as seções principais com rv-section */
-  var sectionSelectors = [
-    '#diagnostico',
-    '.transformation',
-    '.section-divider',
-    '#depoimentos',
-    '#oferta',
-    '#garantia',
-    '.faq',
-    '.final-cta',
-    'footer'
-  ];
-  sectionSelectors.forEach(function (sel) {
-    var els = document.querySelectorAll(sel);
-    els.forEach(function (el) {
-      if (!el.classList.contains('rv-section')) {
-        el.classList.add('rv-section');
-      }
+  ['#diagnostico','.transformation','.section-divider','#depoimentos','#oferta','#garantia','#faq','.site-footer'].forEach(function(sel){
+    document.querySelectorAll(sel).forEach(function(el){
+      if(!el.classList.contains('rv-section')) el.classList.add('rv-section');
     });
   });
 
-  /* 3. Marca a seção de depoimentos com rv-zoom (escala) */
-  var depSection = document.getElementById('depoimentos');
-  if (depSection) {
-    depSection.classList.remove('rv-section');
-    depSection.classList.add('rv-zoom');
-  }
+  var dep=document.getElementById('depoimentos');
+  if(dep){dep.classList.remove('rv-section');dep.classList.add('rv-zoom');}
 
-  /* 4. IntersectionObserver — threshold baixo para disparar cedo */
-  var ioOptions = { threshold: 0.06, rootMargin: '0px 0px -40px 0px' };
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('v');
-        io.unobserve(entry.target); /* animação roda só uma vez */
-      }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){entry.target.classList.add('v');io.unobserve(entry.target);}
     });
-  }, ioOptions);
+  },{threshold:.06,rootMargin:'0px 0px -40px 0px'});
 
-  /* 5. Observa todos os elementos elegíveis */
-  var allReveal = document.querySelectorAll('.rv, .rv-section, .rv-left, .rv-right, .rv-zoom');
-  allReveal.forEach(function (el) {
-    /* Elementos já no viewport ao carregar → anima imediatamente */
-    if (el.getBoundingClientRect().top < window.innerHeight - 40) {
-      el.classList.add('v');
-    } else {
-      io.observe(el);
-    }
+  document.querySelectorAll('.rv,.rv-section,.rv-zoom').forEach(function(el){
+    if(el.getBoundingClientRect().top<window.innerHeight-40){el.classList.add('v');}
+    else{io.observe(el);}
   });
 })();
 
 /* ===== COUNTDOWN ===== */
-const DUR = 15 * 60 * 1000;
-const KEY = 'mi_timerEnd';
-let end = parseInt(sessionStorage.getItem(KEY) || 0);
-if (!end || end < Date.now()) { end = Date.now() + DUR; sessionStorage.setItem(KEY, end); }
-const cd = document.getElementById('cd');
-function tick() {
-  const r = end - Date.now();
-  if (r <= 0) { cd.textContent = 'ENCERRANDO'; return; }
-  const m = Math.floor(r / 60000), s = Math.floor((r % 60000) / 1000);
-  cd.textContent = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+const DUR=15*60*1000, KEY='mi_timerEnd';
+let end=parseInt(sessionStorage.getItem(KEY)||0);
+if(!end||end<Date.now()){end=Date.now()+DUR;sessionStorage.setItem(KEY,end);}
+const cd=document.getElementById('cd');
+function tick(){
+  const r=end-Date.now();
+  if(r<=0){cd.textContent='ENCERRANDO';return;}
+  const m=Math.floor(r/60000),s=Math.floor((r%60000)/1000);
+  cd.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
 }
-tick(); setInterval(tick, 1000);
+tick();setInterval(tick,1000);
 
 /* ===== EXIT POPUP ===== */
-function closePopup() {
-  document.getElementById('exitPopup').classList.remove('show');
-}
-(function() {
-  function showExitPopup() {
-    if (localStorage.getItem('exitShown')) return;
+function closePopup(){document.getElementById('exitPopup').classList.remove('show');}
+(function(){
+  function showExitPopup(){
+    if(localStorage.getItem('exitShown')) return;
     document.getElementById('exitPopup').classList.add('show');
-    localStorage.setItem('exitShown', '1');
+    localStorage.setItem('exitShown','1');
   }
-  history.pushState(null, '', location.href);
-  window.addEventListener('popstate', function() {
-    showExitPopup();
-    history.pushState(null, '', location.href);
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') showExitPopup();
-  });
+  history.pushState(null,'',location.href);
+  window.addEventListener('popstate',function(){showExitPopup();history.pushState(null,'',location.href);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')showExitPopup();});
 })();
 </script>
 </body>
 </html>
-
-
