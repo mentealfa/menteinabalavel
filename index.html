@@ -237,8 +237,8 @@ img.dep-layer {
 #depAudioZone {
   position: absolute;
   z-index: 5;
-  top: 86.75%; left: 28.49%;
-  width: 44.64%; height: 3.42%;
+top: 85.59%; left: 28.33%;
+  width: 44.95%; height: 3.76%;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -247,6 +247,28 @@ img.dep-layer {
   transition: box-shadow .3s ease;
 }
 #depAudioZone:hover {
+  box-shadow:
+    0 0 8px 6px  rgba(245,166,35,.70),
+    0 0 24px 12px rgba(232,197,106,.45),
+    0 0 55px 20px rgba(201,153,42,.25);
+}
+
+.gold-hotspot {
+  position: absolute;
+  display: block;
+  z-index: 10;
+  border-radius: 50px;
+  background: transparent;
+  cursor: pointer;
+  transition: box-shadow .3s ease;
+}
+#hsCompra {
+  top: 95.22%;
+  left: 38.14%;
+  width: 23.79%;
+  height: 3.24%;
+}
+.gold-hotspot:hover {
   box-shadow:
     0 0 8px 6px  rgba(245,166,35,.70),
     0 0 24px 12px rgba(232,197,106,.45),
@@ -527,10 +549,7 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
     <img src="modulos-oferta.png" alt="Módulos e Oferta" style="width:100%;display:block;">
     <a href="https://pay.kiwify.com.br/ltnQQJI" target="_blank"
       id="hsCompra"
-      style="position:absolute;display:block;z-index:10;border-radius:50px;background:transparent;cursor:pointer;bottom:1.59%;left:36.58%;width:26.25%;height:6.38%;transition:box-shadow .3s ease;"
-      title="Garantir Acesso"
-      onmouseover="this.style.boxShadow='0 0 8px 6px rgba(245,166,35,.70), 0 0 24px 12px rgba(232,197,106,.45), 0 0 55px 20px rgba(201,153,42,.25)'"
-      onmouseout="this.style.boxShadow='none'"
+      class="gold-hotspot"
     ></a>
   </div>
 </section> 
