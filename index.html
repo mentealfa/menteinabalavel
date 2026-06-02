@@ -490,9 +490,12 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
 <div id="sh">
   <div class="sh-inner">
     <div class="sh-timer">Oferta especial — encerra em <strong id="cd">15:00</strong></div>
-    <a href="#oferta" class="btn btn-gold" style="font-size:12px;height:44px;">
-      <span class="btn-text" style="padding:0 20px 0 24px;">GARANTIR ACESSO</span>
-      <span class="btn-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#C9992A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <a href="https://pay.kiwify.com.br/V600BAY" target="_blank"
+       onclick="var r=Math.random();if(r<0.33){event.preventDefault();document.getElementById('oferta').scrollIntoView({behavior:'smooth'});}else if(r<0.66){event.preventDefault();document.getElementById('garantia').scrollIntoView({behavior:'smooth'});}"
+       style="display:inline-block;line-height:0;flex-shrink:0;transition:transform .25s ease,filter .25s ease;"
+       onmouseover="this.style.transform='translateY(-2px) scale(1.04)';this.style.filter='drop-shadow(0 6px 18px rgba(201,153,42,.55))'"
+       onmouseout="this.style.transform='none';this.style.filter='none'">
+      <img src="botãodeacesso.png" alt="Garantir Acesso" style="height:44px;width:auto;display:block;mix-blend-mode:multiply;">
     </a>
   </div>
 </div>
